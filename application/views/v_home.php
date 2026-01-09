@@ -219,28 +219,28 @@
               <div class="box">
                 <div>
                   <div class="img-box">
-                    <img src="<?= base_url() ?>assets/images/pf01.jpg" alt="">
+                    <img src="<?= base_url() ?>uploads/tema/<?= $value->thumbnail ?>" alt="">
                   </div>
                   <div class="detail-box">
-                    <h5>Premium Dengan Foto 01</h5>
+                    <h5><?= $value->nama_tema ?></h5>
                     <table style="width: 100%;">
                       <tr>
                         <td class="text-left" style="font-size: 18px; font-weight: bold;">Reguler</td>
-                        <td class="text-right"><span class="mr-3" style="    color: #D94D4D; text-decoration: line-through;">Rp. 100.000</span></td>
-                        <td class="text-right">Rp. 50.000</td>
+                        <td class="text-right"><span class="mr-3" style="    color: #D94D4D; text-decoration: line-through;"><?php echo $value->harga_reg_coret ?></span></td>
+                        <td class="text-right"><?php echo $value->harga_reg ?></td>
                       </tr>
                       <tr>
                         <td class="text-left" style="font-size: 18px; font-weight: bold;">VIP</td>
-                        <td class="text-right"><span class="mr-3" style="    color: #D94D4D; text-decoration: line-through;">Rp. 200.000</span></td>
-                        <td class="text-right">Rp. 100.000</td>
+                        <td class="text-right"><span class="mr-3" style="    color: #D94D4D; text-decoration: line-through;"><?php echo $value->harga_vip_coret ?></span></td>
+                        <td class="text-right"><?php echo $value->harga_vip ?></td>
                       </tr>
                       <tr>
                         <td class="text-left" style="font-size: 18px; font-weight: bold;">VVIP</td>
-                        <td class="text-right"><span class="mr-3" style="    color: #D94D4D; text-decoration: line-through;">Rp. 350.000</span></td>
-                        <td class="text-right">Rp. 200.000</td>
+                        <td class="text-right"><span class="mr-3" style="    color: #D94D4D; text-decoration: line-through;"><?php echo $value->harga_vvip_coret ?></span></td>
+                        <td class="text-right"><?php echo $value->harga_vvip ?></td>
                       </tr>
                     </table>
-                    <a href="">
+                    <a href="<?= base_url('contoh/').$value->kode_tema ?>">
                       Lihat Tema
                     </a>
                   </div>
@@ -251,7 +251,7 @@
         </div>
       </div>
       <div class="btn-box">
-        <a href="">
+        <a href="" target="_blank">
           View More
         </a>
       </div>
@@ -333,9 +333,9 @@
       <div class="footer-info">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
+          <a href="https://dodidev.my.id/">Dodi Devrian Andrianto</a><br><br>
           &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+          <a href="https://dodidev.my.id/" target="_blank">dodidev.my.id</a>
         </p>
       </div>
     </div>
