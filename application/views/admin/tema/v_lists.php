@@ -12,13 +12,13 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Tables</a>
+                  <a href="#">Home</a>
                 </li>
                 <li class="separator">
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Datatables</a>
+                  <a href="#">Data Tema</a>
                 </li>
               </ul>
             </div>
@@ -28,10 +28,8 @@
                   <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Pilihan Tema</h4>
-                        <a href=""
+                        <a href="<?= base_url('admin123/tema/add') ?>"
                                 class="btn btn-primary btn-round ms-auto"
-                                data-bs-toggle="modal"
-                                data-bs-target="#addRowModal"
                             >
                                 <i class="fa fa-plus"></i>
                                 Tambah Tema
@@ -58,10 +56,24 @@
                             
                             <tr>
                                 <td class="text-center">
-                                    <img src="<?= base_url('uploads/tema/'.$value->thumbnail) ?>" alt="" width="200px">
+                                    <img src="<?= base_url('uploads/tema/'.$value->thumbnail) ?>" alt="" width="300px">
                                 </td>
-                                <td><?= $value->nama_tema ?></td>
-                                <td><?= $value->kategori_name ?></td>
+                                <td><?= $value->nama_tema . ' <b style="color: #D94D4D; font-size: 18px;">(' . $value->kode_tema . ')</b>'  ?></td>
+                                <td>
+                                  <?php if ($value->kategori == 'pf') {
+                                    echo 'Premium Foto';
+                                  } elseif ($value->kategori == 'pt') {
+                                    echo 'Premium Tanpa Foto';
+                                  } elseif ($value->kategori == 'sf') {
+                                    echo 'Spesial Foto';
+                                  } elseif ($value->kategori == 'st') {
+                                    echo 'Spesial Tanpa Foto';
+                                  } elseif ($value->kategori == 'mf') {
+                                    echo 'Minimalis Foto';
+                                  } elseif ($value->kategori == 'mt') {
+                                    echo 'Minimalis Tanpa Foto';
+                                  } ?>
+                                </td>
                                 <td>
                                     <table style="width: 100%;">
                                         <tr>
@@ -81,26 +93,13 @@
                                         </tr>
                                     </table>
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <div class="form-button-action">
-                                        <button
-                                        type="button"
-                                        data-bs-toggle="tooltip"
-                                        title=""
+                                        <a href="<?php echo base_url(); ?>admin123/tema/edit/<?= $value->id_tema ?>"
                                         class="btn btn-link btn-primary btn-lg"
-                                        data-original-title="Edit Task"
                                         >
-                                        <i class="fa fa-edit"></i>
-                                        </button>
-                                        <button
-                                        type="button"
-                                        data-bs-toggle="tooltip"
-                                        title=""
-                                        class="btn btn-link btn-danger"
-                                        data-original-title="Remove"
-                                        >
-                                        <i class="fa fa-times"></i>
-                                        </button>
+                                        <i class="fa fa-edit" style="font-size: 25px;"></i>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

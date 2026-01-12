@@ -31,7 +31,7 @@
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
                 <li class="nav-item active">
-                    <a href="<?php echo base_url(); ?>assets/backend/widgets.html">
+                    <a href="<?php echo base_url(); ?>admin123/tema">
                     <i class="fas fa-layer-group"></i>
                     <p>Pilihan Tema</p>
                     </a>

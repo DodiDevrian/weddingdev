@@ -207,15 +207,17 @@
 
       <ul class="filters_menu">
         <li class="active" data-filter=".pf">Premium Foto</li>
-        <li data-filter=".ptf">Premium Tanpa Foto</li>
+        <li data-filter=".pt">Premium Tanpa Foto</li>
         <li data-filter=".sf">Spesial Foto</li>
-        <li data-filter=".stf">Spesial Tanpa Foto</li>
+        <li data-filter=".st">Spesial Tanpa Foto</li>
+        <li data-filter=".mf">Minimalis Foto</li>
+        <li data-filter=".mt">Minimalis Tanpa Foto</li>
       </ul>
 
       <div class="filters-content">
         <div class="row grid">
           <?php foreach ($tema as $key => $value) { ?>
-            <div class="col-sm-6 col-lg-4 all pf">
+            <div class="col-sm-6 col-lg-4 all <?= $value->kategori ?>">
               <div class="box">
                 <div>
                   <div class="img-box">
@@ -240,7 +242,7 @@
                         <td class="text-right"><?php echo $value->harga_vvip ?></td>
                       </tr>
                     </table>
-                    <a href="<?= base_url('contoh/').$value->kode_tema ?>">
+                    <a href="<?= base_url('contoh/').$value->kode_tema ?>" target="_blank">
                       Lihat Tema
                     </a>
                   </div>

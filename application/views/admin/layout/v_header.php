@@ -3,9 +3,9 @@
           <div class="main-header-logo">
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark">
-              <a href="<?php echo base_url(); ?>assets/backend/index.html" class="logo">
+              <a href="<?php echo base_url(); ?>admin123/tema" class="logo">
                 <img
-                  src="<?php echo base_url(); ?>assets/backend/assets/img/kaiadmin/logo_light.svg"
+                  src="<?php echo base_url(); ?>assets/images/logo.png"
                   alt="navbar brand"
                   class="navbar-brand"
                   height="20"

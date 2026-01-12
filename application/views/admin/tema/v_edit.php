@@ -35,7 +35,7 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
                         }
 
-                        echo form_open_multipart('admin123/tema/add');
+                        echo form_open_multipart('admin123/tema/edit/'.$tema->id_tema);
                         ?>
 
                         <div class="form-floating form-floating-custom mb-3">
@@ -45,6 +45,7 @@
                             id="floatingInput"
                             placeholder="Nama Tema"
                             name="nama_tema"
+                            value="<?= $tema->nama_tema ?>"
                             />
                             <label for="floatingInput">Nama Tema</label>
                         </div>
@@ -55,6 +56,7 @@
                             id="floatingInput"
                             placeholder="Kode Tema"
                             name="kode_tema"
+                            value="<?= $tema->kode_tema ?>"
                             />
                             <label for="floatingInput">Kode Tema</label>
                         </div>
@@ -66,6 +68,23 @@
                             name="kategori"
                             required
                             >
+                                <option value="<?= $tema->kategori ?>">
+                                    <?php 
+                                    if ($tema->kategori == "pf") {
+                                        echo "Premium Foto";
+                                    } elseif ($tema->kategori == "pt") {
+                                        echo "Premium Tanpa Foto";
+                                    } elseif ($tema->kategori == "sf") {
+                                        echo "Spesial Foto";
+                                    } elseif ($tema->kategori == "st") {
+                                        echo "Spesial Tanpa Foto";
+                                    } elseif ($tema->kategori == "mf") {
+                                        echo "Minimalis Foto";
+                                    } elseif ($tema->kategori == "mt") {
+                                        echo "Minimalis Tanpa Foto";
+                                    }
+                                    ?>
+                                </option>
                                 <option value="pf">Premium Foto</option>
                                 <option value="pt">Premium Tanpa Foto</option>
                                 <option value="sf">Spesial Foto</option>
@@ -83,7 +102,7 @@
                             id="floatingInput"
                             placeholder="Harga Reguler Coret"
                             name="harga_reg_coret"
-                            value="Rp. "
+                            value="<?= $tema->harga_reg_coret ?>"
                             />
                             <label for="floatingInput">Harga Reguler Coret</label>
                         </div>
@@ -94,7 +113,7 @@
                             class="form-control"
                             id="floatingInput"
                             placeholder="Harga Reguler"
-                            value="Rp. "
+                            value="<?= $tema->harga_reg ?>"
                             name="harga_reg"
                             />
                             <label for="floatingInput">Harga Reguler</label>
@@ -107,7 +126,7 @@
                             id="floatingInput"
                             placeholder="Harga VIP Coret"
                             name="harga_vip_coret"
-                            value="Rp. "
+                            value="<?= $tema->harga_vip_coret ?>"
                             />
                             <label for="floatingInput">Harga VIP Coret</label>
                         </div>
@@ -119,7 +138,7 @@
                             id="floatingInput"
                             placeholder="Harga VIP"
                             name="harga_vip"
-                            value="Rp. "
+                            value="<?= $tema->harga_vip ?>"
                             />
                             <label for="floatingInput">Harga VIP</label>
                         </div>
@@ -131,7 +150,7 @@
                             id="floatingInput"
                             placeholder="Harga VVIP Coret"
                             name="harga_vvip_coret"
-                            value="Rp. "
+                            value="<?= $tema->harga_vvip_coret ?>"
                             />
                             <label for="floatingInput">Harga VVIP Coret</label>
                         </div>
@@ -143,7 +162,7 @@
                             id="floatingInput"
                             placeholder="Harga VVIP"
                             name="harga_vvip"
-                            value="Rp. "
+                            value="<?= $tema->harga_vvip ?>"
                             />
                             <label for="floatingInput">Harga VVIP</label>
                         </div>
