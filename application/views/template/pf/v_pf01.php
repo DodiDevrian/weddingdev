@@ -11,36 +11,33 @@
         <meta name='robots' content='noindex, nofollow' />
 
 	<!-- This site is optimized with the Yoast SEO plugin v26.4 - https://yoast.com/wordpress/plugins/seo/ -->
-	<title>Undangan Website Premium 02</title>
-	<meta name="description" content="Buat undangan website untuk pernikahanmu secara mudah, murah dan cepat. Jadikan acara kamu jadi lebih berkesan !" />
+	<title>Undangan Premium Dengan Foto 01</title>
+	<meta name="description" content="Buat undangan pernikahan berbasis website dengan cara praktis, hemat biaya, dan cepat untuk momen spesialmu." />
 	<meta property="og:locale" content="id_ID" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Undangan Website Premium 02" />
-	<meta property="og:description" content="Buat undangan website untuk pernikahanmu secara mudah, murah dan cepat. Jadikan acara kamu jadi lebih berkesan !" />
-	<meta property="og:url" content="https://inv.punakawandigital.id/premium-02/" />
-	<meta property="og:site_name" content="Punakawan Digital" />
+	<meta property="og:title" content="Undangan Premium Dengan Foto 01" />
+	<meta property="og:description" content="Buat undangan pernikahan berbasis website dengan cara praktis, hemat biaya, dan cepat untuk momen spesialmu." />
+	<meta property="og:url" content="<?= base_url('tema/pf01') ?>" />
+	<meta property="og:site_name" content="Weddingdev" />
 	<meta property="article:modified_time" content="2025-11-05T03:04:49+00:00" />
-	<meta property="og:image" content="https://inv.punakawandigital.id/wp-content/uploads/2025/09/premium-vintage-02-new-2.jpg" />
+	<meta property="og:image" content="<?= base_url('uploads/tema/pf01.jpg') ?> ?>" />
 	<meta property="og:image:width" content="1024" />
 	<meta property="og:image:height" content="1027" />
 	<meta property="og:image:type" content="image/jpeg" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:label1" content="Estimasi waktu membaca" />
 	<meta name="twitter:data1" content="2 menit" />
-	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://inv.punakawandigital.id/premium-02/","url":"https://inv.punakawandigital.id/premium-02/","name":"Undangan Website Premium 02","isPartOf":{"@id":"https://inv.punakawandigital.id/#website"},"primaryImageOfPage":{"@id":"https://inv.punakawandigital.id/premium-02/#primaryimage"},"image":{"@id":"https://inv.punakawandigital.id/premium-02/#primaryimage"},"thumbnailUrl":"https://inv.punakawandigital.id/wp-content/uploads/2025/09/premium-vintage-02-new-2.jpg","datePublished":"2025-11-03T04:02:27+00:00","dateModified":"2025-11-05T03:04:49+00:00","description":"Buat undangan website untuk pernikahanmu secara mudah, murah dan cepat. Jadikan acara kamu jadi lebih berkesan !","breadcrumb":{"@id":"https://inv.punakawandigital.id/premium-02/#breadcrumb"},"inLanguage":"id","potentialAction":[{"@type":"ReadAction","target":["https://inv.punakawandigital.id/premium-02/"]}]},{"@type":"ImageObject","inLanguage":"id","@id":"https://inv.punakawandigital.id/premium-02/#primaryimage","url":"https://inv.punakawandigital.id/wp-content/uploads/2025/09/premium-vintage-02-new-2.jpg","contentUrl":"https://inv.punakawandigital.id/wp-content/uploads/2025/09/premium-vintage-02-new-2.jpg","width":1024,"height":1027},{"@type":"BreadcrumbList","@id":"https://inv.punakawandigital.id/premium-02/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://inv.punakawandigital.id/"},{"@type":"ListItem","position":2,"name":"Undangan Website Premium 02"}]},{"@type":"WebSite","@id":"https://inv.punakawandigital.id/#website","url":"https://inv.punakawandigital.id/","name":"Punakawan Digital","description":"Sebar Undangan sambil Rebahan","publisher":{"@id":"https://inv.punakawandigital.id/#organization"},"inLanguage":"id"},{"@type":"Organization","@id":"https://inv.punakawandigital.id/#organization","name":"Punakawan Digital","url":"https://inv.punakawandigital.id/","logo":{"@type":"ImageObject","inLanguage":"id","@id":"https://inv.punakawandigital.id/#/schema/logo/image/","url":"https://inv.punakawandigital.id/wp-content/uploads/2025/03/cropped-cropped-PUNAKAWAN.png","contentUrl":"https://inv.punakawandigital.id/wp-content/uploads/2025/03/cropped-cropped-PUNAKAWAN.png","width":512,"height":512,"caption":"Punakawan Digital"},"image":{"@id":"https://inv.punakawandigital.id/#/schema/logo/image/"}}]}</script>
 	<!-- / Yoast SEO plugin. -->
 
 
 <link rel='dns-prefetch' href='//unpkg.com' />
 <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://inv.punakawandigital.id/wp-json/oembed/1.0/embed?url=https%3A%2F%2Finv.punakawandigital.id%2Fpremium-02%2F" />
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://inv.punakawandigital.id/wp-json/oembed/1.0/embed?url=https%3A%2F%2Finv.punakawandigital.id%2Fpremium-02%2F&#038;format=xml" />
 <style id='wp-img-auto-sizes-contain-inline-css'>
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
 </style>
-<link rel='stylesheet' id='bdt-uikit-css' href='https://inv.punakawandigital.id/wp-content/plugins/weddingpress/assets/css/modules/bdt-uikit.css?ver=3.15.1' media='all' />
-<link rel='stylesheet' id='ep-helper-css' href='https://inv.punakawandigital.id/wp-content/plugins/weddingpress/assets/css/modules/ep-helper.css?ver=3.2.1.1' media='all' />
+<link rel='stylesheet' id='bdt-uikit-css' href='https://dodidev.my.id/cdn/css/bdt-uikit.css?ver=3.15.1' media='all' />
+<link rel='stylesheet' id='ep-helper-css' href='https://dodidev.my.id/cdn/css/ep-helper.css?ver=3.2.1.1' media='all' />
 <style id='wp-emoji-styles-inline-css'>
 
 	img.wp-smiley, img.emoji {
@@ -56,9 +53,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 	}
 /*# sourceURL=wp-emoji-styles-inline-css */
 </style>
-<link rel='stylesheet' id='uaf_client_css-css' href='https://inv.punakawandigital.id/wp-content/uploads/useanyfont/uaf.css?ver=1758699543' media='all' />
-<link rel='stylesheet' id='exad-main-style-css' href='https://inv.punakawandigital.id/wp-content/plugins/weddingpress/assets/css/exad-styles.min.css?ver=6.9' media='all' />
-<link rel='stylesheet' id='cui_style-css' href='https://inv.punakawandigital.id/wp-content/plugins/weddingpress/addons/comment-kit2//css/cui_style.css?ver=1.0.0' media='screen' />
+<link rel='stylesheet' id='uaf_client_css-css' href='https://dodidev.my.id/cdn/css/uaf.css?ver=1758699543' media='all' />
+<link rel='stylesheet' id='exad-main-style-css' href='https://dodidev.my.id/cdn/css/exad-styles.min.css?ver=6.9' media='all' />
+<link rel='stylesheet' id='cui_style-css' href='https://dodidev.my.id/cdn/css/cui_style.css?ver=1.0.0' media='screen' />
 <style id='cui_style-inline-css'>
 
 		.cui-wrapper {
@@ -141,19 +138,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 	
 /*# sourceURL=cui_style-inline-css */
 </style>
-<link rel='stylesheet' id='wdp-icon-css' href='https://inv.punakawandigital.id/wp-content/plugins/weddingpress/assets/css/new-icon.min.css?ver=3.2.1.1' media='all' />
-<link rel='stylesheet' id='hello-elementor-css' href='https://inv.punakawandigital.id/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.4.5' media='all' />
-<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://inv.punakawandigital.id/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.4.5' media='all' />
-<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://inv.punakawandigital.id/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=3.4.5' media='all' />
-<link rel='stylesheet' id='elementor-frontend-css' href='https://inv.punakawandigital.id/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.33.2' media='all' />
-<link rel='stylesheet' id='elementor-post-4-css' href='https://inv.punakawandigital.id/wp-content/uploads/elementor/css/post-4.css?ver=1765893891' media='all' />
-<link rel='stylesheet' id='elementor-icons-css' href='https://inv.punakawandigital.id/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.44.0' media='all' />
-<link rel='stylesheet' id='weddingpress-wdp-css' href='https://inv.punakawandigital.id/wp-content/plugins/weddingpress/assets/css/wdp.css?ver=3.2.1.1' media='all' />
-<link rel='stylesheet' id='kirim-kit-css' href='https://inv.punakawandigital.id/wp-content/plugins/weddingpress/assets/css/guest-book.css?ver=3.2.1.1' media='all' />
-<link rel='stylesheet' id='widget-heading-css' href='https://inv.punakawandigital.id/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.33.2' media='all' />
-<link rel='stylesheet' id='widget-spacer-css' href='https://inv.punakawandigital.id/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=3.33.2' media='all' />
-<link rel='stylesheet' id='e-animation-zoomIn-css' href='https://inv.punakawandigital.id/wp-content/plugins/elementor/assets/lib/animations/styles/zoomIn.min.css?ver=3.33.2' media='all' />
-<link rel='stylesheet' id='e-animation-fadeInDown-css' href='https://inv.punakawandigital.id/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInDown.min.css?ver=3.33.2' media='all' />
+<link rel='stylesheet' id='wdp-icon-css' href='https://dodidev.my.id/cdn/css/new-icon.min.css?ver=3.2.1.1' media='all' />
+<link rel='stylesheet' id='hello-elementor-css' href='https://dodidev.my.id/cdn/css/reset.css?ver=3.4.5' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://dodidev.my.id/cdn/css/theme.css?ver=3.4.5' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://dodidev.my.id/cdn/css/header-footer.css?ver=3.4.5' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://dodidev.my.id/cdn/css/frontend.min.css?ver=3.33.2' media='all' />
+<link rel='stylesheet' id='elementor-post-4-css' href='https://dodidev.my.id/cdn/css/post-4.css?ver=1765893891' media='all' />
+<link rel='stylesheet' id='elementor-icons-css' href='https://dodidev.my.id/cdn/css/elementor-icons.min.css?ver=5.44.0' media='all' />
+<link rel='stylesheet' id='weddingpress-wdp-css' href='https://dodidev.my.id/cdn/css/wdp.css?ver=3.2.1.1' media='all' />
+<link rel='stylesheet' id='kirim-kit-css' href='https://dodidev.my.id/cdn/css/guest-book.css?ver=3.2.1.1' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://dodidev.my.id/cdn/css/widget-heading.min.css?ver=3.33.2' media='all' />
+<link rel='stylesheet' id='widget-spacer-css' href='https://dodidev.my.id/cdn/css/widget-spacer.min.css?ver=3.33.2' media='all' />
+<link rel='stylesheet' id='e-animation-zoomIn-css' href='https://dodidev.my.id/cdn/css/zoomIn.min.css?ver=3.33.2' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInDown-css' href='https://dodidev.my.id/cdn/css/fadeInDown.min.css?ver=3.33.2' media='all' />
+
 <link rel='stylesheet' id='widget-image-css' href='https://inv.punakawandigital.id/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.33.2' media='all' />
 <link rel='stylesheet' id='e-animation-fadeInUp-css' href='https://inv.punakawandigital.id/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css?ver=3.33.2' media='all' />
 <link rel='stylesheet' id='widget-lottie-css' href='https://inv.punakawandigital.id/wp-content/plugins/elementor-pro/assets/css/widget-lottie.min.css?ver=3.32.1' media='all' />
@@ -185,7 +183,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <script src="https://inv.punakawandigital.id/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
 <link rel="https://api.w.org/" href="https://inv.punakawandigital.id/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://inv.punakawandigital.id/wp-json/wp/v2/pages/30944" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://inv.punakawandigital.id/xmlrpc.php?rsd" />
 <meta name="generator" content="WordPress 6.9" />
-<link rel='shortlink' href='https://inv.punakawandigital.id/?p=30944' />
+
 <meta name="generator" content="Elementor 3.33.2; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 			<style>
@@ -1413,7 +1411,7 @@ function playAudio(){var isYT=!1;if(document.body.contains(document.getElementBy
 					document.addEventListener( event, lazyloadRunObserver );
 				} );
 			</script>
-			<script src="https://inv.punakawandigital.id/wp-content/plugins/weddingpress/assets/js/wdp-swiper.min.js" id="wdp-swiper-js-js"></script>
+<script src="https://inv.punakawandigital.id/wp-content/plugins/weddingpress/assets/js/wdp-swiper.min.js" id="wdp-swiper-js-js"></script>
 <script src="https://inv.punakawandigital.id/wp-content/plugins/weddingpress/assets/js/qr-code.js" id="weddingpress-qr-js"></script>
 <script src="https://inv.punakawandigital.id/wp-content/plugins/weddingpress/assets/js/exad-scripts.min.js?ver=3.2.1.1" id="exad-main-script-js"></script>
 <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js" id="qr-code-styling-js"></script>
@@ -1514,5 +1512,34 @@ setDynamicVH();window.addEventListener('resize',setDynamicVH);</script>
 <script>document.addEventListener("DOMContentLoaded",function(){const toggleButton=document.getElementById("open");const videoElement=document.querySelector(".elementor-background-video-container video");const linkVideo=".elementor-background-video-container video";let iframeOrVideoLoaded=!1;if(toggleButton&&videoElement){toggleButton.addEventListener("click",function(){if(videoElement.paused){videoElement.play()}})}
 const elHostedVideo=document.querySelector('.slideAwal .elementor-background-video-container video');if(linkVideo!=="no"&&linkVideo!==""){const isYoutubeVideos=isYoutubeVideoLink(linkVideo);setTimeout(()=>{if(!iframeOrVideoLoaded){toggleButton.classList.add("btnVisibleAfterLoad");console.log("Slow Network!!! Video Buffered, Force Button Visible After 15 Second")}},15000);if(isYoutubeVideos){}else{elHostedVideo.removeAttribute('autoplay');setTimeout(()=>{toggleButton.classList.add("btnVisibleAfterLoad");iframeOrVideoLoaded=!0;console.log("Video Loaded")},200)}}
 function isYoutubeVideoLink(url){var regExp=/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;var match=url.match(regExp);if(match&&match[7].length==11){return match[7]}else{return!1}}});</script>
-	</body>
+	
+<script>
+	document.oncontextmenu = function() {
+		alert("Right Click is Disabled")
+		return false;
+	}
+
+	document.onkeydown = function(e) {
+		if (e.keyCode == 123) {
+			return false;
+		}
+		if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+			alert("Content is protected")
+			return false;
+		}
+		if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+			alert("Content is protected")
+			return false;
+		}
+		if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+			alert("Content is protected")
+			return false;
+		}
+		if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+			alert("Content is protected")
+			return false;
+		}
+	}
+</script>
+</body>
 </html>

@@ -12,7 +12,7 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="<?= base_url() ?>assets/frontend/images/favicon.png" type="">
+  <link rel="shortcut icon" href="<?= base_url() ?>assets/images/logo.png" type="">
 
   <title> Weddingdev | Undangan Digital Premium</title>
 
@@ -275,19 +275,19 @@
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  Lampung
                 </span>
               </a>
               <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  +62 857-8811-3563
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  contactme@weddingdev.dodidev.my.id
                 </span>
               </a>
             </div>
@@ -296,10 +296,10 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Feane
+              Weddingdev
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              Website Undangan Digital Premium
             </p>
             <div class="footer_social">
               <a href="">
