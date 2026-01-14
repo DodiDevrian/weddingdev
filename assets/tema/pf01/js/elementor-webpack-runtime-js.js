@@ -1,0 +1,1 @@
+import { BASE_URL } from 'https://inv.punakawandigital.id/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.33.2';

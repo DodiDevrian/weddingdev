@@ -12,13 +12,13 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="<?= base_url() ?>assets/images/logo.png" type="">
+  <link rel="shortcut icon" href="<?= base_url() ?>assets/frontend/images/favicon.png" type="">
 
-  <title> Weddingdev | Undangan Digital Premium</title>
+  <title> Weddingdev | Undangan Digital Premium </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/css/bootstrap.css" />
-
+ 
   <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <!-- nice select  -->
@@ -33,142 +33,50 @@
 
 </head>
 
-<body>
+<body class="sub_page">
 
-    <div class="hero_area">
-        <div class="bg-box">
-        <img src="<?= base_url() ?>assets/frontend/images/hero-bg.jpg" alt="">
-        </div>
-        <!-- header section strats -->
-        <header class="header_section">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.html">
-                <span>
-                Weddingdev
-                </span>
-            </a>
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="<?= base_url() ?>assets/frontend/images/hero-bg.jpg" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              Weddingdev
+            </span>
+          </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class=""> </span>
-            </button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav  mx-auto ">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?= base_url('home') ?>">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('menu') ?>">Menu</a>
-                </li>
-                </ul>
-                <div class="user_option">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto ">
+              <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('home') ?>">Home </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="<?= base_url('menu') ?>">Menu <span class="sr-only">(current)</span> </a>
+              </li>
+            </ul>
+            <div class="user_option">
                 <a href="" class="order_online" style="color: white;">
                     <i class="fa fa-user" aria-hidden="true"></i> Area Member
                 </a>
                 </div>
-            </div>
-            </nav>
-        </div>
-        </header>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class="slider_section ">
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container ">
-              <div class="row">
-                <div class="col-lg-10 ">
-                  <div class="detail-box">
-                    <h1>
-                        Website Undangan Digital Premium
-                    </h1>
-                    <p>
-                        Momen berharga Anda layak dirayakan secara istimewa. Weddingdev menghadirkan undangan digital elegan dan personal dengan berbagai desain premium sesuai gaya Anda. Bagikan dengan mudah melalui email atau media sosial, dan ciptakan kesan istimewa sejak awal hari bahagia Anda.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Pesan Sekarang
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
+        </nav>
       </div>
-
-    </section>
-    <!-- end slider section -->
+    </header>
+    <!-- end header section -->
   </div>
-
-  <!-- offer section -->
-
-  <section class="offer_section layout_padding-bottom">
-    <div class="offer_container">
-      <div class="container ">
-        <div class="row">
-            <div class="col-md-6 col-lg-6">
-                <div class="box ">
-                <div class="detail-box">
-                    <h5>
-                    Paket Reguler
-                    </h5>
-                    <p>
-                    <ul>
-                        <li>Masa Aktif 1 Bulan</li>
-                        <li>Bisa Menggunakan Foto</li>
-                        <li>Request Foto Galeri</li>
-                        <li>Tidak Bisa Custom Galeri Sendiri</li>
-                        <li>Unlimited Tamu Undangan</li>
-                        <li>Custom Musik Background</li>
-                        <li>Ada Love Story</li>
-                        <li>Bebas Revisi</li>
-                    </ul>
-                    </p>
-                    <a href="">
-                    Pesan Sekarang 
-                    </a>
-                </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6">
-                <div class="box ">
-                    <div class="detail-box">
-                        <h5>
-                            Paket VIP
-                        </h5>
-                    <p>
-                    <ul>
-                        <li>Masa Aktif 1 Bulan</li>
-                        <li>Bisa Menggunakan Foto</li>
-                        <li>Request Foto Galeri</li>
-                        <li>Tidak Bisa Custom Galeri Sendiri</li>
-                        <li>Unlimited Tamu Undangan</li>
-                        <li>Custom Musik Background</li>
-                        <li>Ada Love Story</li>
-                        <li>Bebas Revisi</li>
-                        <li><b style="color: greenyellow;">Diberikan Akun Member Untuk Mengubah Data Sendiri</b></li>
-                    </ul>
-                    </p>
-                    <a href="">
-                    Pesan Sekarang 
-                    </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end offer section -->
 
   <!-- food section -->
 
-  <section class="food_section layout_padding-bottom">
+  <section class="food_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
@@ -224,18 +132,13 @@
           <?php } ?>
         </div>
       </div>
-      <div class="btn-box">
-        <a href="" target="_blank">
-          View More
-        </a>
-      </div>
     </div>
   </section>
 
   <!-- end food section -->
 
   <!-- footer section -->
-  <footer class="footer_section">
+    <footer class="footer_section">
     <div class="container">
       <div class="row">
         <div class="col-md-4 footer-col">

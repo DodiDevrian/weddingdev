@@ -6,10 +6,9 @@
               <a href="<?php echo base_url(); ?>admin123/tema" class="logo">
                 <img
                   src="<?php echo base_url(); ?>assets/images/logo.png"
-                  alt="navbar brand"
                   class="navbar-brand"
                   height="20"
-                />
+                /> WeddingDev
               </a>
               <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">

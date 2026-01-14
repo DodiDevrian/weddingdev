@@ -27,8 +27,6 @@ class Tema extends CI_Controller
         $this->form_validation->set_rules('harga_reg', 'Harga Reguler', 'required');
         $this->form_validation->set_rules('harga_vip_coret', 'Harga VIP Coret', 'required');
         $this->form_validation->set_rules('harga_vip', 'Harga VIP', 'required');
-        $this->form_validation->set_rules('harga_vvip_coret', 'Harga VVIP Coret', 'required');
-        $this->form_validation->set_rules('harga_vvip', 'Harga VVIP', 'required');
 
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path']      = './uploads/tema/';
@@ -59,8 +57,6 @@ class Tema extends CI_Controller
                     'harga_reg'         => $this->input->post('harga_reg'),
                     'harga_vip_coret'   => $this->input->post('harga_vip_coret'),
                     'harga_vip'         => $this->input->post('harga_vip'),
-                    'harga_vvip_coret'  => $this->input->post('harga_vvip_coret'),
-                    'harga_vvip'        => $this->input->post('harga_vvip'),
                     'thumbnail'         => $upload_data['uploads']['file_name']
                 );
 
@@ -87,8 +83,6 @@ class Tema extends CI_Controller
         $this->form_validation->set_rules('harga_reg', 'Harga Reguler', 'required');
         $this->form_validation->set_rules('harga_vip_coret', 'Harga VIP Coret', 'required');
         $this->form_validation->set_rules('harga_vip', 'Harga VIP', 'required');
-        $this->form_validation->set_rules('harga_vvip_coret', 'Harga VVIP Coret', 'required');
-        $this->form_validation->set_rules('harga_vvip', 'Harga VVIP', 'required');
 
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path']      = './uploads/tema/';
@@ -127,8 +121,6 @@ class Tema extends CI_Controller
                     'harga_reg'        => $this->input->post('harga_reg'),
                     'harga_vip_coret'  => $this->input->post('harga_vip_coret'),
                     'harga_vip'        => $this->input->post('harga_vip'),
-                    'harga_vvip_coret'  => $this->input->post('harga_vvip_coret'),
-                    'harga_vvip'        => $this->input->post('harga_vvip'),
                     'thumbnail'    => $upload_data['uploads']['file_name']
                 );
 
@@ -150,8 +142,6 @@ class Tema extends CI_Controller
                     'harga_reg'        => $this->input->post('harga_reg'),
                     'harga_vip_coret'  => $this->input->post('harga_vip_coret'),
                     'harga_vip'        => $this->input->post('harga_vip'),
-                    'harga_vvip_coret'  => $this->input->post('harga_vvip_coret'),
-                    'harga_vvip'        => $this->input->post('harga_vvip'),
             );
 
             $this->m_tema->edit($data);
@@ -166,4 +156,24 @@ class Tema extends CI_Controller
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }
+
+        public function edit_status($id_tema)
+	{
+        $tema = $this->m_tema->detail_tema($id_tema);
+        if ($tema->status == 'no') {
+            $data = array(
+                'id_tema'	=> $id_tema,
+                'status' 	=> 'yes',
+            );
+        }else{
+            $data = array(
+                'id_tema'	=> $id_tema,
+                'status' 	=> 'no',
+            );
+        }
+
+		$this->m_tema->edit($data);
+		$this->session->set_flashdata('pesan', 'Data Tema Berhasil Diubah!');
+        redirect('admin123/tema');
+	}
 }

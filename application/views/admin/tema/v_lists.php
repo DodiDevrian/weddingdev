@@ -48,6 +48,7 @@
                             <th>Nama Tema</th>
                             <th>Kategori</th>
                             <th>Harga</th>
+                            <th>Status</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -86,12 +87,19 @@
                                             <td class="text-right"><span class="mr-3" style="    color: #D94D4D; text-decoration: line-through;"><?php echo $value->harga_vip_coret ?></span></td>
                                             <td class="text-right"><?php echo $value->harga_vip ?></td>
                                         </tr>
-                                        <tr>
-                                            <td class="text-left" style="font-size: 18px; font-weight: bold;">VVIP</td>
-                                            <td class="text-right"><span class="mr-3" style="    color: #D94D4D; text-decoration: line-through;"><?php echo $value->harga_vvip_coret ?></span></td>
-                                            <td class="text-right"><?php echo $value->harga_vvip ?></td>
-                                        </tr>
                                     </table>
+                                </td>
+                                <td class="text-center">
+                                  <p>
+                                    <b>
+                                  <?php if ($value->status == 'yes') {
+                                    echo 'Ready';
+                                  } elseif ($value->status == 'no') {
+                                    echo 'Cooming Soon';
+                                  } ?>
+                                    </b>
+                                  </p>
+                                  <a class="btn btn-secondary" href="<?php echo base_url(); ?>admin123/tema/edit_status/<?= $value->id_tema ?>">Ubah Status</a>
                                 </td>
                                 <td class="text-center">
                                     <div class="form-button-action">

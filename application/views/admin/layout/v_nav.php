@@ -5,14 +5,13 @@
         <div class="sidebar-logo">
           <!-- Logo Header -->
           <div class="logo-header" data-background-color="dark">
-            <a href="<?php echo base_url(); ?>assets/backend/index.html" class="logo">
-              <img
-                src="<?php echo base_url(); ?>assets/backend/assets/img/kaiadmin/logo_light.svg"
-                alt="navbar brand"
-                class="navbar-brand"
-                height="20"
-              />
-            </a>
+              <a href="<?php echo base_url(); ?>admin123/tema" class="logo" style="color: white;">
+                <img
+                  src="<?php echo base_url(); ?>assets/images/logo.png"
+                  class="navbar-brand"
+                  height="20"
+                /> &nbsp; Admin WeddingDev
+              </a>
             <div class="nav-toggle">
               <button class="btn btn-toggle toggle-sidebar">
                 <i class="gg-menu-right"></i>

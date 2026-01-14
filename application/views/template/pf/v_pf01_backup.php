@@ -142,9 +142,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <link rel='stylesheet' id='hello-elementor-css' href='https://dodidev.my.id/cdn/css/reset.css?ver=3.4.5' media='all' />
 <link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://dodidev.my.id/cdn/css/theme.css?ver=3.4.5' media='all' />
 <link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://dodidev.my.id/cdn/css/header-footer.css?ver=3.4.5' media='all' />
-<link rel='stylesheet' id='elementor-frontend-css' href='https://dodidev.my.id/cdn/css/frontend.min.css?ver=3.33.2' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://inv.punakawandigital.id/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.33.2' media='all' />
 <link rel='stylesheet' id='elementor-post-4-css' href='https://dodidev.my.id/cdn/css/post-4.css?ver=1765893891' media='all' />
-<link rel='stylesheet' id='elementor-icons-css' href='https://dodidev.my.id/cdn/css/pf01/elementor-icons-css.css' media='all' />
+<link rel='stylesheet' id='elementor-icons-css' href='https://dodidev.my.id/cdn/css/elementor-icons.min.css?ver=5.44.0' media='all' />
 <link rel='stylesheet' id='weddingpress-wdp-css' href='https://dodidev.my.id/cdn/css/wdp.css?ver=3.2.1.1' media='all' />
 <link rel='stylesheet' id='kirim-kit-css' href='https://dodidev.my.id/cdn/css/guest-book.css?ver=3.2.1.1' media='all' />
 <link rel='stylesheet' id='widget-heading-css' href='https://dodidev.my.id/cdn/css/widget-heading.min.css?ver=3.33.2' media='all' />

@@ -143,30 +143,6 @@
                             <label for="floatingInput">Harga VIP</label>
                         </div>
 
-                        <div class="form-floating form-floating-custom mb-3">
-                            <input
-                            type="text"
-                            class="form-control"
-                            id="floatingInput"
-                            placeholder="Harga VVIP Coret"
-                            name="harga_vvip_coret"
-                            value="<?= $tema->harga_vvip_coret ?>"
-                            />
-                            <label for="floatingInput">Harga VVIP Coret</label>
-                        </div>
-
-                        <div class="form-floating form-floating-custom mb-3">
-                            <input
-                            type="text"
-                            class="form-control"
-                            id="floatingInput"
-                            placeholder="Harga VVIP"
-                            name="harga_vvip"
-                            value="<?= $tema->harga_vvip ?>"
-                            />
-                            <label for="floatingInput">Harga VVIP</label>
-                        </div>
-
                         <div class="form-group">
                             <label for="exampleFormControlFile1"
                             >Masukkan Gambar Thumbnail</label
