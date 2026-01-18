@@ -12,7 +12,7 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="<?= base_url() ?>assets/frontend/images/favicon.png" type="">
+    <link rel="shortcut icon" href="<?= base_url() ?>assets/images/logo.png" type="">
 
   <title> Weddingdev | Undangan Digital Premium </title>
 
@@ -43,7 +43,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="<?= base_url() ?>">
             <span>
               Weddingdev
             </span>
@@ -56,14 +56,14 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('home') ?>">Home </a>
+                <a class="nav-link" href="<?= base_url() ?>">Home </a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="<?= base_url('menu') ?>">Menu <span class="sr-only">(current)</span> </a>
               </li>
             </ul>
             <div class="user_option">
-                <a href="" class="order_online" style="color: white;">
+                <a href="<?= base_url('login') ?>" class="order_online" style="color: white;">
                     <i class="fa fa-user" aria-hidden="true"></i> Area Member
                 </a>
                 </div>
@@ -91,6 +91,8 @@
         <li data-filter=".st">Spesial Tanpa Foto</li>
         <li data-filter=".mf">Minimalis Foto</li>
         <li data-filter=".mt">Minimalis Tanpa Foto</li>
+        <li data-filter=".af">Adat Foto</li>
+        <li data-filter=".at">Adat Tanpa Foto</li>
       </ul>
 
       <div class="filters-content">
@@ -234,7 +236,7 @@
   <!-- nice select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
-  <script src="<?= base_url() ?>assets/frontend/js/custom.js"></script>
+  <script src="<?= base_url() ?>assets/frontend/js/menu-custom.js"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>

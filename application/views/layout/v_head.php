@@ -12,7 +12,7 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="images/favicon.png" type="">
+    <link rel="shortcut icon" href="<?= base_url() ?>assets/images/logo.png" type="">
 
     <title> Weddingdev | Undangan Digital Premium </title>
 

@@ -43,7 +43,7 @@
         <header class="header_section">
         <div class="container">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="<?= base_url() ?>">
                 <span>
                 Weddingdev
                 </span>
@@ -56,14 +56,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav  mx-auto ">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?= base_url('home') ?>">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="<?= base_url() ?>">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('menu') ?>">Menu</a>
                 </li>
                 </ul>
                 <div class="user_option">
-                <a href="" class="order_online" style="color: white;">
+                <a href="<?= base_url('login') ?>" class="order_online" style="color: white;">
                     <i class="fa fa-user" aria-hidden="true"></i> Area Member
                 </a>
                 </div>
@@ -88,7 +88,7 @@
                         Momen berharga Anda layak dirayakan secara istimewa. Weddingdev menghadirkan undangan digital elegan dan personal dengan berbagai desain premium sesuai gaya Anda. Bagikan dengan mudah melalui email atau media sosial, dan ciptakan kesan istimewa sejak awal hari bahagia Anda.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="https://wa.me/6285788113563?text=Silahkan pesan tema dan paket yang anda inginkan" class="btn1" target="_blank">
                         Pesan Sekarang
                       </a>
                     </div>
@@ -128,7 +128,7 @@
                         <li>Bebas Revisi</li>
                     </ul>
                     </p>
-                    <a href="">
+                    <a href="https://wa.me/6285788113563?text=Permisi%20kak,%20saya%20ingin%20memesan%20undangan%20digital%20dengan%20tema%20berikut:%0AContoh%0A%0ANama%20Tema%20:%0APaket%20Tema%20:%20Reguler%20/%20VIP%20(hapus%20salah%20satu)%0A%0ATerima%20kasih." target="_blank">
                     Pesan Sekarang 
                     </a>
                 </div>
@@ -142,10 +142,10 @@
                         </h5>
                     <p>
                     <ul>
-                        <li>Masa Aktif 1 Bulan</li>
+                        <li>Masa Aktif 1 Tahun</li>
                         <li>Bisa Menggunakan Foto</li>
                         <li>Request Foto Galeri</li>
-                        <li>Tidak Bisa Custom Galeri Sendiri</li>
+                        <li>Bisa Custom Galeri Sendiri</li>
                         <li>Unlimited Tamu Undangan</li>
                         <li>Custom Musik Background</li>
                         <li>Ada Love Story</li>
@@ -153,7 +153,7 @@
                         <li><b style="color: greenyellow;">Diberikan Akun Member Untuk Mengubah Data Sendiri</b></li>
                     </ul>
                     </p>
-                    <a href="">
+                    <a href="https://wa.me/6285788113563?text=Permisi%20kak,%20saya%20ingin%20memesan%20undangan%20digital%20dengan%20tema%20berikut:%0AContoh%0A%0ANama%20Tema%20:%0APaket%20Tema%20:%20Reguler%20/%20VIP%20(hapus%20salah%20satu)%0A%0ATerima%20kasih." target="_blank">
                     Pesan Sekarang 
                     </a>
                     </div>
@@ -183,6 +183,8 @@
         <li data-filter=".st">Spesial Tanpa Foto</li>
         <li data-filter=".mf">Minimalis Foto</li>
         <li data-filter=".mt">Minimalis Tanpa Foto</li>
+        <li data-filter=".af">Adat Foto</li>
+        <li data-filter=".at">Adat Tanpa Foto</li>
       </ul>
 
       <div class="filters-content">
@@ -225,7 +227,7 @@
         </div>
       </div>
       <div class="btn-box">
-        <a href="" target="_blank">
+        <a href="<?php echo base_url('menu') ?>">
           View More
         </a>
       </div>

@@ -3,16 +3,18 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Datatables - Kaiadmin Bootstrap 5 Admin Dashboard</title>
+    <meta name="base-url" content="<?= base_url(); ?>">
+    <title>Admin | Weddingdev</title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
     />
     <link
       rel="icon"
-      href="<?php echo base_url(); ?>assets/backend/assets/img/kaiadmin/favicon.ico"
+      href="<?= base_url() ?>assets/images/logo.png"
       type="image/x-icon"
     />
+    <link rel="shortcut icon" href="<?= base_url() ?>assets/images/logo.png" type="">
 
     <!-- Fonts and icons -->
     <script src="<?php echo base_url(); ?>assets/backend/assets/js/plugin/webfont/webfont.min.js"></script>
@@ -40,5 +42,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/backend/assets/css/kaiadmin.min.css" />
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="../assets/css/demo.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/backend/assets/css/demo.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
   </head>

@@ -29,4 +29,12 @@ class M_tema extends CI_Model
         $this->db->where('id_tema', $data['id_tema']);
         $this->db->update('tbl_tema', $data);
     }
+
+    public function get_by_kode($kode_tema)
+    {
+        return $this->db
+                    ->get_where('tbl_tema', ['kode_tema' => $kode_tema])
+                    ->row();
+    }
+
 }

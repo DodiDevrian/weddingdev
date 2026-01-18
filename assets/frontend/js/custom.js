@@ -31,29 +31,46 @@ getYear();
 
 $(window).on('load', function () {
 
-    var $grid = $(".grid").isotope({
-        itemSelector: ".all",
+    var limit = 3;
+    var counter = 0;
+
+    var $grid = $('.grid').isotope({
+        itemSelector: '.all',
         percentPosition: false,
         masonry: {
-            columnWidth: ".all"
+            columnWidth: '.all'
+        },
+        filter: function () {
+            var filterValue = $('.filters_menu li.active').attr('data-filter');
+
+            if (filterValue === '*') {
+                counter++;
+                return counter <= limit;
+            }
+
+            if ($(this).is(filterValue)) {
+                counter++;
+                return counter <= limit;
+            }
+
+            return false;
         }
     });
 
-    // aktifkan filter default (yang punya class active)
-    var defaultFilter = $('.filters_menu li.active').attr('data-filter');
-    $grid.isotope({ filter: defaultFilter });
+    // trigger filter saat load
+    counter = 0;
+    $grid.isotope();
 
-    $('.filters_menu li').click(function () {
+    $('.filters_menu li').on('click', function () {
         $('.filters_menu li').removeClass('active');
         $(this).addClass('active');
 
-        var data = $(this).attr('data-filter');
-        $grid.isotope({
-            filter: data
-        });
+        counter = 0;
+        $grid.isotope();
     });
 
 });
+
 
 // nice select
 $(document).ready(function() {

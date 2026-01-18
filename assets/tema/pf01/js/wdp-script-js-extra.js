@@ -1,0 +1,1 @@
+var _wdpobject = {"ajaxurl":"https://inv.punakawandigital.id/wp-admin/admin-ajax.php","home_url":"https://inv.punakawandigital.id","site_url":"https://inv.punakawandigital.id","site_title":"Punakawan Digital","code_nonce":"6730b83d0b","member_area":"https://akses.weddingpress.net/","nonce_key":"_wdp_nonce","_wdp_nonce":"9fae7cee6e","is_admin":""};
