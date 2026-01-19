@@ -264,4 +264,376 @@ class Member extends CI_Controller
         }
     }
 
+    public function edit_fotoglr1($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr1')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr1 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr1);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr1'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 1 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
+    public function edit_fotoglr2($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr2')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr2 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr2);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr2'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 2 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
+    public function edit_fotoglr3($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr3')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr3 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr3);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr3'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 3 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
+    public function edit_fotoglr4($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr4')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr4 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr4);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr4'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 4 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
+    public function edit_fotoglr5($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr5')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr5 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr5);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr5'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 5 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
+    public function edit_fotoglr6($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr6')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr6 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr6);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr6'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 6 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
+    public function edit_fotoglr7($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr7')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr7 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr7);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr7'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 7 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
+    public function edit_fotoglr8($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr8')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr8 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr8);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr8'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 8 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
+    public function edit_fotoglr9($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr9')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr9 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr9);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr9'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 9 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
+    public function edit_fotoglr10($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr10')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr10 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr10);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr10'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 10 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
+    public function edit_fotoglr11($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr11')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr11 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr11);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr11'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 11 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
+    public function edit_fotoglr12($id_member)
+    {
+        $config['upload_path']      = './uploads/foto/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_glr12')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/foto/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->foto_glr12 != "") {
+                unlink('./uploads/foto/' . $foto->foto_glr12);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'foto_glr12'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Foto 12 Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
+    }
+
 }

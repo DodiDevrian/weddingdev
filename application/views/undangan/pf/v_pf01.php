@@ -225,8 +225,21 @@ p {
 /*# sourceURL=global-styles-inline-css */
 </style>
 <style>
-:root {
-    --foto-prm: url("<?= base_url('uploads/foto/'.$member->foto_prm); ?>");
+	:root {
+    --foto-cover: url("<?= base_url('uploads/foto/'.$member->foto_cover); ?>");
+    --foto-glr1: url("<?= base_url('uploads/foto/'.$member->foto_glr1); ?>");
+    --foto-glr2: url("<?= base_url('uploads/foto/'.$member->foto_glr2); ?>");
+
+	--PRE-VINT-02-COVER-LANDS3-PII: url("<?= base_url('assets/tema/pf01/images/PRE-VINT-02-COVER-LANDS3-PII.webp'); ?>");
+	--P2G-FALLBACK-PII: url("<?= base_url('assets/tema/pf01/images/P2G-FALLBACK-PII.webp'); ?>");
+	--PRE-VINT-02-PRAYER-PII: url("<?= base_url('assets/tema/pf01/images/PRE-VINT-02-PRAYER-PII.webp'); ?>");
+	--PRE-VINT-02-COUPLE2-PII: url("<?= base_url('assets/tema/pf01/images/PRE-VINT-02-COUPLE2-PII.webp'); ?>");
+	--PRE-02-BUILD-EVENT-LONG2-PII: url("<?= base_url('assets/tema/pf01/images/PRE-02-BUILD-EVENT-LONG2-PII.webp'); ?>");
+	--PRE-VINT-02-PRAYER-PII: url("<?= base_url('assets/tema/pf01/images/PRE-VINT-02-PRAYER-PII.webp'); ?>");
+	--bg-bank-1-1: url("<?= base_url('assets/tema/pf01/images/bg-bank-1-1.webp'); ?>");
+	--PRE-VINT-02-COVER-PII: url("<?= base_url('assets/tema/pf01/images/PRE-VINT-02-COVER-PII.webp'); ?>");
+	
+
 }
 </style>
 
@@ -620,11 +633,46 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 				<div class="elementor-element elementor-element-73b4ae9e ef zoom-in  elementor-widget elementor-widget-heading" data-id="73b4ae9e" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Minggu, 30 Desember 2025</h2>				</div>
+					<?php 
+						$tanggal_db = $member->tgl_akad; // 2025-12-30
+						$timestamp = strtotime($tanggal_db);
+
+						$hari = [
+							'Sunday' => 'Minggu',
+							'Monday' => 'Senin',
+							'Tuesday' => 'Selasa',
+							'Wednesday' => 'Rabu',
+							'Thursday' => 'Kamis',
+							'Friday' => 'Jumat',
+							'Saturday' => 'Sabtu'
+						];
+
+						$bulan = [
+							'January' => 'Januari',
+							'February' => 'Februari',
+							'March' => 'Maret',
+							'April' => 'April',
+							'May' => 'Mei',
+							'June' => 'Juni',
+							'July' => 'Juli',
+							'August' => 'Agustus',
+							'September' => 'September',
+							'October' => 'Oktober',
+							'November' => 'November',
+							'December' => 'Desember'
+						];
+
+						$nama_hari = $hari[date('l', $timestamp)];
+						$tgl = date('d', $timestamp);
+						$nama_bulan = $bulan[date('F', $timestamp)];
+						$tahun = date('Y', $timestamp);
+						$jam = date('H.i', $timestamp);
+					?>
+					<h2 class="elementor-heading-title elementor-size-default"><?php echo "$nama_hari, $tgl $nama_bulan $tahun"; ?></h2>				</div>
 				</div>
 				<div class="elementor-element elementor-element-20f66fe9 ef zoom-in  elementor-widget elementor-widget-heading" data-id="20f66fe9" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Pukul : 09.00 WIB</h2>				</div>
+					<h2 class="elementor-heading-title elementor-size-default">Pukul : <?php echo "Pukul : $jam WIB"; ?></h2>				</div>
 				</div>
 				<div class="elementor-element elementor-element-20a050c9 elementor-widget-divider--view-line_icon ef zoom-in  elementor-view-default elementor-widget-divider--element-align-center elementor-widget elementor-widget-divider" data-id="20a050c9" data-element_type="widget" data-widget_type="divider.default">
 				<div class="elementor-widget-container">
@@ -638,12 +686,12 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 				<div class="elementor-element elementor-element-cf5cf7f ef zoom-in  elementor-widget elementor-widget-text-editor" data-id="cf5cf7f" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>Alamat : Ds Pagu Kec. Wates Kab. Kediri</p>								</div>
+									<p>Alamat : <?= $member->lokasi_akad ?></p>								</div>
 				</div>
 				<div class="elementor-element elementor-element-9dcbf2b elementor-align-center ef zoom-in  elementor-widget elementor-widget-button" data-id="9dcbf2b" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
-					<a class="elementor-button elementor-button-link elementor-size-xs" href="https://maps.google.com" target="_blank">
+					<a class="elementor-button elementor-button-link elementor-size-xs" href="<?= $member->map_akad ?>" target="_blank">
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-icon">
 				<i aria-hidden="true" class="fas fa-map-marker-alt"></i>			</span>
@@ -673,11 +721,46 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 				<div class="elementor-element elementor-element-384d4c19 ef zoom-in  elementor-widget elementor-widget-heading" data-id="384d4c19" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Minggu, 30 Desember 2025</h2>				</div>
+					<?php 
+						$tanggal_db = $member->tgl_resepsi; // 2025-12-30
+						$timestamp = strtotime($tanggal_db);
+
+						$hari = [
+							'Sunday' => 'Minggu',
+							'Monday' => 'Senin',
+							'Tuesday' => 'Selasa',
+							'Wednesday' => 'Rabu',
+							'Thursday' => 'Kamis',
+							'Friday' => 'Jumat',
+							'Saturday' => 'Sabtu'
+						];
+
+						$bulan = [
+							'January' => 'Januari',
+							'February' => 'Februari',
+							'March' => 'Maret',
+							'April' => 'April',
+							'May' => 'Mei',
+							'June' => 'Juni',
+							'July' => 'Juli',
+							'August' => 'Agustus',
+							'September' => 'September',
+							'October' => 'Oktober',
+							'November' => 'November',
+							'December' => 'Desember'
+						];
+
+						$nama_hari_resepsi = $hari[date('l', $timestamp)];
+						$tgl_resepsi = date('d', $timestamp);
+						$nama_bulan_resepsi = $bulan[date('F', $timestamp)];
+						$tahun_resepsi = date('Y', $timestamp);
+						$jam_resepsi = date('H.i', $timestamp);
+					?>
+					<h2 class="elementor-heading-title elementor-size-default"><?php echo "$nama_hari_resepsi, $tgl_resepsi $nama_bulan_resepsi $tahun_resepsi"; ?></h2>				</div>
 				</div>
 				<div class="elementor-element elementor-element-7e8c16a3 ef zoom-in  elementor-widget elementor-widget-heading" data-id="7e8c16a3" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Pukul : 09.00 WIB</h2>				</div>
+					<h2 class="elementor-heading-title elementor-size-default">Pukul : <?php echo "Pukul : $jam_resepsi WIB"; ?></h2>				</div>
 				</div>
 				<div class="elementor-element elementor-element-253513a3 elementor-widget-divider--view-line_icon ef zoom-in  elementor-view-default elementor-widget-divider--element-align-center elementor-widget elementor-widget-divider" data-id="253513a3" data-element_type="widget" data-widget_type="divider.default">
 				<div class="elementor-widget-container">
@@ -691,12 +774,12 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 				<div class="elementor-element elementor-element-44a70326 ef zoom-in  elementor-widget elementor-widget-text-editor" data-id="44a70326" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>Alamat : Ds Pagu Kec. Wates Kab. Kediri</p>								</div>
+									<p>Alamat : <?= $member->lokasi_resepsi ?></p>								</div>
 				</div>
 				<div class="elementor-element elementor-element-65bc91dd elementor-align-center ef zoom-in  elementor-widget elementor-widget-button" data-id="65bc91dd" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
-					<a class="elementor-button elementor-button-link elementor-size-xs" href="https://maps.google.com" target="_blank">
+					<a class="elementor-button elementor-button-link elementor-size-xs" href="<?= $member->map_resepsi ?>" target="_blank">
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-icon">
 				<i aria-hidden="true" class="fas fa-map-marker-alt"></i>			</span>
@@ -725,7 +808,7 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 				<div class="elementor-element elementor-element-2a2cb3ed ef  slide-down  elementor-widget elementor-widget-text-editor" data-id="2a2cb3ed" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>Livw Streaming</p>								</div>
+									<p>Live Streaming</p>								</div>
 				</div>
 				<div class="elementor-element elementor-element-2e92acf2 ef zoom-in  elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="2e92acf2" data-element_type="widget" data-widget_type="divider.default">
 				<div class="elementor-widget-container">
@@ -741,11 +824,11 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 				<div class="elementor-element elementor-element-228fb0bf ef slide-up elementor-widget elementor-widget-heading" data-id="228fb0bf" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Minggu, 30 Desember 2025</h2>				</div>
+					<h2 class="elementor-heading-title elementor-size-default"><?php echo "$nama_hari, $tgl $nama_bulan $tahun"; ?></h2>				</div>
 				</div>
 				<div class="elementor-element elementor-element-4397479d ef slide-up elementor-widget elementor-widget-heading" data-id="4397479d" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Pukul : 10.00 WIB</h2>				</div>
+					<h2 class="elementor-heading-title elementor-size-default">Pukul : <?php echo "Pukul : $jam WIB"; ?></h2>				</div>
 				</div>
 				<div class="elementor-element elementor-element-5492a525 elementor-align-center ef zoom-out elementor-widget elementor-widget-button" data-id="5492a525" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">

@@ -20,7 +20,7 @@
                 ?>
             <div class="row">
               <div class="col-md-6">
-                <div class="card" style="height: -webkit-fill-available;">
+                <div class="card">
                   <div class="card-header">
                     <div class="card-head-row">
                       <div class="card-title">Data Diri</div>
@@ -195,7 +195,7 @@
                         <tr>
                             <td>Acara Pernikahan</td>
                             <td> : </td>
-                            <td><?= date('d M Y, H:i', strtotime($member->tgl_acara)) ?></td>
+                            <td><?= date('d M Y', strtotime($member->tgl_acara)) ?></td>
                             <td>Akad / Pemberkatan</td>
                             <td> : </td>
                             <td><?= $member->akad_or_berkat ?></td>
@@ -209,22 +209,30 @@
                             <td><?= date('d M Y, H:i', strtotime($member->tgl_resepsi)) ?></td>
                         </tr>
                         <tr>
+                          <td>Alamat Akad/Pemberkatan</td>
+                          <td> : </td>
+                          <td><?= $member->lokasi_akad ?></td>
+                          <td>Alamat Resepsi</td>
+                          <td> : </td>
+                          <td><?= $member->lokasi_resepsi ?></td>
+                        </tr>
+                        <tr>
                             <td>Lokasi Akad/Pemberkatan</td>
                             <td> : </td>
                             <td>
-                                <?php if ($member->lokasi_akad == '') {
+                                <?php if ($member->map_akad == '') {
                                     echo '<label style="color: red;">Belum diatur</label>';
                                 } else {
-                                    echo '<a class="btn btn-secondary btn-sm" href="' . $member->lokasi_akad . '" target="_blank">Lokasi</a>';
+                                    echo '<a class="btn btn-secondary btn-sm" href="' . $member->map_akad . '" target="_blank">Lokasi</a>';
                                 } ?>
                             </td>
                             <td>Lokasi Resepsi</td>
                             <td> : </td>
                             <td>
-                                <?php if ($member->lokasi_resepsi == '') {
+                                <?php if ($member->map_resepsi == '') {
                                     echo '<label style="color: red;">Belum diatur</label>';
                                 } else {
-                                    echo '<a class="btn btn-secondary btn-sm" href="' . $member->lokasi_resepsi . '" target="_blank">Lokasi</a>';
+                                    echo '<a class="btn btn-secondary btn-sm" href="' . $member->map_resepsi . '" target="_blank">Lokasi</a>';
                                 } ?>
                             </td>
                         </tr>
@@ -293,6 +301,168 @@
                   </div>
                 </div>
                 <div class="card">
+                  <div class="card-header">
+                    <div class="card-head-row">
+                      <div class="card-title">Akun Medsos</div>
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#medsos">
+                            Ubah Akun Medsos
+                          </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <table style="width: -webkit-fill-available;">
+                        <tr>
+                            <td>IG Mempelai Pria</td>
+                            <td> : </td>
+                            <?php if ($member->ig_laki != '') { ?>
+                            <td><a class="btn btn-sm btn-secondary" target="_blank" href="https://www.instagram.com/<?= $member->ig_laki ?>"><i class="fab fa-instagram"></i> <?= $member->ig_laki ?></a></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td>IG Mempelai Wanita</td>
+                            <td> : </td>
+                            <?php if ($member->ig_prm != '') { ?>
+                            <td><a class="btn btn-sm btn-secondary" target="_blank" href="https://www.instagram.com/<?= $member->ig_prm ?>"><i class="fab fa-instagram"></i> <?= $member->ig_prm ?></a></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <td>IG Live Streaming</td>
+                            <td> : </td>
+                            <?php if ($member->ig_live != '') { ?>
+                            <td><a class="btn btn-sm btn-secondary" target="_blank" href="https://www.instagram.com/<?= $member->ig_live ?>"><i class="fab fa-instagram"></i> <?= $member->ig_live ?></a></td>
+                            <?php } ?>
+                        </tr>
+                    </table>
+                    <div class="modal fade" id="medsos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Ubah Data Medsos</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <?php echo form_open('admin123/member/edit_datamedsos_reg/' . $member->id_member); ?>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <div class="form-group">
+                                          <label class="form-label">Username IG Mempelai Pria</label>
+                                          <input type="text" class="form-control" id="ig_laki" name="ig_laki" value="<?= $member->ig_laki ?>">
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="form-label">Username IG Mempelai Wanita</label>
+                                          <input type="text" class="form-control" id="ig_prm" name="ig_prm" value="<?= $member->ig_prm ?>">
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="form-label">Username IG Live Streaming</label>
+                                          <input type="text" class="form-control" id="ig_live" name="ig_live" value="<?= $member->ig_live ?>">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-primary">Save changes</button>
+                          </div>
+                          <?php echo form_close(); ?>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card bg-light">
+                  <div class="card-header">
+                    <div class="card-head-row card-tools-still-right">
+                      <div class="card-title">Love Story</div>
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#lovestory">
+                            Ubah Love Story
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card">
+                      <div class="card-header">
+                        Love Story 1 (Pertemuan)
+                      </div>
+                      <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                          <p><?= $member->love_st1 ?></p>
+                        </blockquote>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-header">
+                        Love Story 2 (Lamaran)
+                      </div>
+                      <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                          <p><?= $member->love_st2 ?></p>
+                        </blockquote>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-header">
+                        Love Story 3 (Pernikahan)
+                      </div>
+                      <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                          <p><?= $member->love_st3 ?></p>
+                        </blockquote>
+                      </div>
+                    </div>
+                    <div class="modal fade" id="lovestory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ubah Data Love Story</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <?php echo form_open('admin123/member/edit_datalovest_reg/' . $member->id_member); ?>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                          <label for="comment">Love Story 1 (Pertemuan)</label>
+                                          <textarea class="form-control" id="comment" rows="5" name="love_st1"><?= $member->love_st1 ?></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label for="comment">Love Story 2 (Lamaran)</label>
+                                          <textarea class="form-control" id="comment" rows="5" name="love_st2"><?= $member->love_st2 ?></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label for="comment">Love Story 3 (Pernikahan)</label>
+                                          <textarea class="form-control" id="comment" rows="5" name="love_st3"><?= $member->love_st3 ?></textarea>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                            <?php echo form_close(); ?>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card" style="height: -webkit-fill-available;">
                     <div class="card-header">
                     <div class="card-head-row">
                       <div class="card-title">Data Gift</div>
@@ -303,8 +473,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card-body">
-                    <table>
+                  <div class="card-body" >
+                    <table class="table" >
                         <tr>
                             <td>Bank</td>
                             <td> : </td>
@@ -426,170 +596,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="row">
-              <div class="col-md-6">
-                <div class="card bg-light">
-                  <div class="card-header">
-                    <div class="card-head-row card-tools-still-right">
-                      <div class="card-title">Love Story</div>
-                      <div class="card-tools">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#lovestory">
-                            Ubah Love Story
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="card">
-                      <div class="card-header">
-                        Love Story 1 (Pertemuan)
-                      </div>
-                      <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                          <p><?= $member->love_st1 ?></p>
-                        </blockquote>
-                      </div>
-                    </div>
-
-                    <div class="card">
-                      <div class="card-header">
-                        Love Story 2 (Lamaran)
-                      </div>
-                      <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                          <p><?= $member->love_st2 ?></p>
-                        </blockquote>
-                      </div>
-                    </div>
-
-                    <div class="card">
-                      <div class="card-header">
-                        Love Story 3 (Pernikahan)
-                      </div>
-                      <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                          <p><?= $member->love_st3 ?></p>
-                        </blockquote>
-                      </div>
-                    </div>
-                    <div class="modal fade" id="lovestory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ubah Data Love Story</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <?php echo form_open('admin123/member/edit_datalovest_reg/' . $member->id_member); ?>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                          <label for="comment">Love Story 1 (Pertemuan)</label>
-                                          <textarea class="form-control" id="comment" rows="5" name="love_st1"><?= $member->love_st1 ?></textarea>
-                                        </div>
-
-                                        <div class="form-group">
-                                          <label for="comment">Love Story 2 (Lamaran)</label>
-                                          <textarea class="form-control" id="comment" rows="5" name="love_st2"><?= $member->love_st2 ?></textarea>
-                                        </div>
-
-                                        <div class="form-group">
-                                          <label for="comment">Love Story 3 (Pernikahan)</label>
-                                          <textarea class="form-control" id="comment" rows="5" name="love_st3"><?= $member->love_st3 ?></textarea>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </div>
-                            <?php echo form_close(); ?>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="card" style="height: -webkit-fill-available;">
-                  <div class="card-header">
-                    <div class="card-head-row">
-                      <div class="card-title">Akun Medsos</div>
-                      <div class="card-tools">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#medsos">
-                            Ubah Akun Medsos
-                          </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body table-responsive">
-                    <table class="table" style="width: max-content;">
-                        <tr>
-                            <td>Instagram Mempelai Pria</td>
-                            <td> : </td>
-                            <td><?= $member->ig_laki ?></td>
-                            <?php if ($member->ig_laki != '') { ?>
-                            <td><a class="btn btn-sm btn-secondary" target="_blank" href="https://www.instagram.com/<?= $member->ig_laki ?>">Go to <i class="fab fa-instagram"></i></a></td>
-                            <?php } ?>
-                        </tr>
-                        <tr>
-                            <td>Instagram Mempelai Wanita</td>
-                            <td> : </td>
-                            <td><?= $member->ig_prm ?></td>
-                            <?php if ($member->ig_prm != '') { ?>
-                            <td><a class="btn btn-sm btn-secondary" target="_blank" href="https://www.instagram.com/<?= $member->ig_prm ?>">Go to <i class="fab fa-instagram"></i></a></td>
-                            <?php } ?>
-                        </tr>
-                        <tr>
-                            <td>Instagram Live Streaming</td>
-                            <td> : </td>
-                            <td><?= $member->ig_live ?></td>
-                            <?php if ($member->ig_live != '') { ?>
-                            <td><a class="btn btn-sm btn-secondary" target="_blank" href="https://www.instagram.com/<?= $member->ig_live ?>">Go to <i class="fab fa-instagram"></i></a></td>
-                            <?php } ?>
-                        </tr>
-                    </table>
-                    <div class="modal fade" id="medsos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                          <div class="modal-content">
-                          <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Ubah Data Medsos</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                              <?php echo form_open('admin123/member/edit_datamedsos_reg/' . $member->id_member); ?>
-                              <div class="row">
-                                  <div class="col-md-12">
-                                      <div class="form-group">
-                                          <label class="form-label">Username IG Mempelai Pria</label>
-                                          <input type="text" class="form-control" id="ig_laki" name="ig_laki" value="<?= $member->ig_laki ?>">
-                                      </div>
-                                      <div class="form-group">
-                                          <label class="form-label">Username IG Mempelai Wanita</label>
-                                          <input type="text" class="form-control" id="ig_prm" name="ig_prm" value="<?= $member->ig_prm ?>">
-                                      </div>
-                                      <div class="form-group">
-                                          <label class="form-label">Username IG Live Streaming</label>
-                                          <input type="text" class="form-control" id="ig_live" name="ig_live" value="<?= $member->ig_live ?>">
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="submit" class="btn btn-primary">Save changes</button>
-                          </div>
-                          <?php echo form_close(); ?>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             
             <div class="row">
               <div class="col-md-8">
@@ -601,6 +607,7 @@
                     <div class="row">
                       <div class="col-md-6 mt-2">
                         <div class="text-center">
+                          <p>Foto Mempelai Pria</p>
                           <?php if ($member->foto_laki != '') { ?>
                             <img width="60%" src="<?= base_url('uploads/foto/' . $member->foto_laki) ?>" alt="Foto Laki-laki" class="img-fluid rounded"
                             style="
@@ -674,6 +681,7 @@
                       </div>
                       <div class="col-md-6 mt-2">
                         <div class="text-center">
+                          <p>Foto Mempelai Perempuan</p>
                           <?php if ($member->foto_prm != '') { ?>
                             <img width="60%" src="<?= base_url('uploads/foto/' . $member->foto_prm) ?>" alt="Foto Perempuan" class="img-fluid rounded"
                             style="
@@ -755,6 +763,7 @@
                   </div>
                   <div class="card-body mt-2">
                     <div class="text-center">
+                      <p>Foto Cover Undangan</p>
                       <?php if ($member->foto_cover != '') { ?>
                             <img width="60%" src="<?= base_url('uploads/foto/' . $member->foto_cover) ?>" alt="Foto Cover" class="img-fluid rounded"
                             style="
@@ -840,20 +849,906 @@
                   </div>
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-md-6">
-                        <div class="table-responsive table-hover table-sales">
-                          
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 1</p>
+                          <?php if ($member->foto_glr1 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr1) ?>" alt="Foto Laki-laki" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr1">Ubah Foto 1</button>
+
+                          <div class="modal fade" id="ubahfotoglr1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 1</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr1 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr1) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr1/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 1</label>
+                                      <input type="file" class="form-control" name="foto_glr1" value="<?= $member->foto_glr1 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="mapcontainer">
-                          <div
-                            id="world-map"
-                            class="w-100"
-                            style="height: 300px"
-                          ></div>
+
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 2</p>
+                          <?php if ($member->foto_glr2 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr2) ?>" alt="Data Foto" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr2">Ubah Foto 2</button>
+
+                          <div class="modal fade" id="ubahfotoglr2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 2</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr2 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr2) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr2/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 2</label>
+                                      <input type="file" class="form-control" name="foto_glr2" value="<?= $member->foto_glr2 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
+
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 3</p>
+                          <?php if ($member->foto_glr3 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr3) ?>" alt="Data Foto" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr3">Ubah Foto 3</button>
+
+                          <div class="modal fade" id="ubahfotoglr3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 3</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr3 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr3) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr3/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 3</label>
+                                      <input type="file" class="form-control" name="foto_glr3" value="<?= $member->foto_glr3 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 4</p>
+                          <?php if ($member->foto_glr4 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr4) ?>" alt="Data Foto" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr4">Ubah Foto 4</button>
+
+                          <div class="modal fade" id="ubahfotoglr4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 4</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr4 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr4) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr4/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 4</label>
+                                      <input type="file" class="form-control" name="foto_glr4" value="<?= $member->foto_glr4 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 5</p>
+                          <?php if ($member->foto_glr5 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr5) ?>" alt="Data Foto" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr5">Ubah Foto 5</button>
+
+                          <div class="modal fade" id="ubahfotoglr5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 5</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr5 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr5) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr5/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 5</label>
+                                      <input type="file" class="form-control" name="foto_glr5" value="<?= $member->foto_glr5 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 6</p>
+                          <?php if ($member->foto_glr6 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr6) ?>" alt="Data Foto" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr6">Ubah Foto 6</button>
+
+                          <div class="modal fade" id="ubahfotoglr6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 6</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr6 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr6) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr6/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 6</label>
+                                      <input type="file" class="form-control" name="foto_glr6" value="<?= $member->foto_glr6 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 7</p>
+                          <?php if ($member->foto_glr7 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr7) ?>" alt="Data Foto" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr7">Ubah Foto 7</button>
+
+                          <div class="modal fade" id="ubahfotoglr7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 7</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr7 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr7) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr7/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 7</label>
+                                      <input type="file" class="form-control" name="foto_glr7" value="<?= $member->foto_glr7 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 8</p>
+                          <?php if ($member->foto_glr8 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr8) ?>" alt="Data Foto" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr8">Ubah Foto 8</button>
+
+                          <div class="modal fade" id="ubahfotoglr8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 8</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr8 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr8) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr8/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 8</label>
+                                      <input type="file" class="form-control" name="foto_glr8" value="<?= $member->foto_glr8 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 9</p>
+                          <?php if ($member->foto_glr9 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr9) ?>" alt="Data Foto" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr9">Ubah Foto 9</button>
+
+                          <div class="modal fade" id="ubahfotoglr9" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 9</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr9 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr9) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr9/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 9</label>
+                                      <input type="file" class="form-control" name="foto_glr9" value="<?= $member->foto_glr9 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 10</p>
+                          <?php if ($member->foto_glr10 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr10) ?>" alt="Data Foto" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr10">Ubah Foto 10</button>
+
+                          <div class="modal fade" id="ubahfotoglr10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 10</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr10 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr10) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr10/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 10</label>
+                                      <input type="file" class="form-control" name="foto_glr10" value="<?= $member->foto_glr10 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 11</p>
+                          <?php if ($member->foto_glr11 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr11) ?>" alt="Data Foto" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr11">Ubah Foto 11</button>
+
+                          <div class="modal fade" id="ubahfotoglr11" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 11</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr11 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr11) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr11/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 11</label>
+                                      <input type="file" class="form-control" name="foto_glr11" value="<?= $member->foto_glr11 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-4 col-lg-3 mt-2">
+                        <div class="text-center mt-2 mb-2 pb-2 border rounded border-3">
+                          <p style="font-weight: bold;">Foto 12</p>
+                          <?php if ($member->foto_glr12 != '') { ?>
+                            <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr12) ?>" alt="Data Foto" class="img-fluid rounded"
+                            style="
+                            height: 400px;
+                            object-fit: cover;
+                            object-position: center;
+                            "><br>
+                          <?php  } else { ?>
+                            <div style="
+                              width: 80%;
+                              margin: auto;
+                              height: 400px;
+                              background-color: #f0f0f0;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                            ">
+                              <span class="text-muted">Foto Tidak Tersedia</span>
+                            </div>
+                          <?php  } ?>
+
+                          <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahfotoglr12">Ubah Foto 12</button>
+
+                          <div class="modal fade" id="ubahfotoglr12" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Ubah Foto 12</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="text-start mb-4">
+                                    <label for="">Foto Saat Ini</label>
+                                    <?php if ($member->foto_glr12 != '') { ?>
+                                    <img width="80%" src="<?= base_url('uploads/foto/' . $member->foto_glr12) ?>" alt="Data Foto" class="img-fluid rounded"
+                                    style="
+                                    height: 400px;
+                                    object-fit: cover;
+                                    object-position: center;
+                                    "><br>
+                                    <?php  } else { ?>
+                                    <div style="
+                                      width: 80%;
+                                      margin: auto;
+                                      height: 400px;
+                                      background-color: #f0f0f0;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                    ">
+                                      <span class="text-muted">Foto Tidak Tersedia</span>
+                                    </div>
+                                    <?php  } ?>
+                                  </div>
+
+                                  <?php echo form_open_multipart('admin123/member/edit_fotoglr12/' . $member->id_member); ?>
+                                  <div class="form-group text-start">
+                                      <label class="form-label">Foto 12</label>
+                                      <input type="file" class="form-control" name="foto_glr12" value="<?= $member->foto_glr12 ?>">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
                     </div>
                   </div>
                 </div>
