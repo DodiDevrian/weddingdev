@@ -187,11 +187,43 @@
         <li data-filter=".at">Adat Tanpa Foto</li>
       </ul>
 
+      
+
       <div class="filters-content">
         <div class="row grid">
           <?php foreach ($tema as $key => $value) { ?>
-            <div class="col-sm-6 col-lg-4 all <?= $value->kategori ?>">
-              <div class="box">
+          <?php
+            $pesan_reg = "Permisi kak, saya ingin memesan undangan digital dengan tema
+      
+            Nama Tema : {$value->nama_tema}
+            Paket Tema : Reguler
+            Harga : {$value->harga_reg}
+      
+            Metode Pengiriman :
+            1. BCA (2930839411) Dodi Devrian Andrianto
+            2. BRI (035701224305502) Dodi Devrian Andrianto
+            3. Dana (089628744896) Dodi Devrian Andanto
+      
+            Terima kasih";
+
+            $pesan_vip = "Permisi kak, saya ingin memesan undangan digital dengan tema
+
+            Nama Tema : {$value->nama_tema}
+            Paket Tema : VIP
+            Harga : {$value->harga_vip}
+
+            Metode Pengiriman :
+            1. BCA (2930839411) Dodi Devrian Andrianto
+            2. BRI (035701224305502) Dodi Devrian Andrianto
+            3. Dana (089628744896) Dodi Devrian Andanto
+
+            Terima kasih";
+      
+            $link_wa_reg = "https://wa.me/6289628744896?text=" . urlencode($pesan_reg);
+            $link_wa_vip = "https://wa.me/6289628744896?text=" . urlencode($pesan_vip);
+          ?>
+            <div class="col-sm-6 col-lg-4 all <?= $value->kategori ?>" style="height: 485px;">
+              <div class="box" style="height: -webkit-fill-available;">
                 <div>
                   <div class="img-box">
                     <img src="<?= base_url() ?>uploads/tema/<?= $value->thumbnail ?>" alt="">
@@ -210,6 +242,18 @@
                         <td class="text-right"><?php echo $value->harga_vip ?></td>
                       </tr>
                     </table>
+                    <div class="d-flex" style="justify-content: center; margin-top: 10px;">
+                      <?php if ($value->status == 'yes') { ?>
+                        <div class="row" style="width: 100%;">
+                          <div class="reg-button col-6">
+                            <a class="btn btn-sm" href="<?= $link_wa_reg ?>" target="_blank"><i class="fa fa-shopping-cart" aria-hidden="true"></i> &nbsp; Reguler</a>
+                          </div>
+                          <div class="vip-button col-6">
+                            <a class="btn btn-sm" href="<?= $link_wa_vip ?>" target="_blank"><i class="fa fa-shopping-cart" aria-hidden="true"></i> &nbsp; VIP</a>
+                          </div>
+                        </div>
+                      <?php } ?>
+                    </div>
                     <?php if ($value->status == 'yes') { ?>
                       <a class="mt-2" href="<?= base_url('contoh/').$value->kode_tema ?>" target="_blank">
                         Lihat Tema

@@ -72,6 +72,8 @@
                                 <option value="st">Spesial Tanpa Foto</option>
                                 <option value="mf">Minimalis Foto</option>
                                 <option value="mt">Minimalis Tanpa Foto</option>
+                                <option value="af">Adat Foto</option>
+                                <option value="at">Adat Tanpa Foto</option>
                             </select>
                             <label for="selectFloatingLabel">Kategori</label>
                         </div>

@@ -157,6 +157,18 @@ class Member extends CI_Controller
 		redirect('admin123/member/detail_reg/' . $id_member);
     }
 
+    public function edit_dataayat_reg($id_member)
+    {
+        $data = array(
+			'id_member'	=> $id_member,
+            'ayat' => $this->input->post('ayat'),
+		);
+
+		$this->m_member->edit($data);
+		$this->session->set_flashdata('pesan', 'Data Ayat Berhasil Diubah!');
+		redirect('admin123/member/detail_reg/' . $id_member);
+    }
+
     public function edit_datamedsos_reg($id_member)
     {
         $data = array(
@@ -169,6 +181,37 @@ class Member extends CI_Controller
 		$this->m_member->edit($data);
 		$this->session->set_flashdata('pesan', 'Data Media Sosial Berhasil Diubah!');
 		redirect('admin123/member/detail_reg/' . $id_member);
+    }
+
+        public function edit_musik($id_member)
+    {
+        $config['upload_path']      = './uploads/song/';
+        $config['allowed_types']    = 'mp3|wav';
+        $config['max_size']         = 200000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('song')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/song/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $foto = $this->m_member->detail($id_member);
+            if ($foto->song != "") {
+                unlink('./uploads/song/' . $foto->song);
+            }
+
+            $data = array(
+                'id_member'      => $id_member,
+                'song'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_member->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Musik Berhasil Diubah!');
+            redirect('admin123/member/detail_reg/' . $id_member);
+        }
     }
 
     public function edit_fotolaki($id_member)

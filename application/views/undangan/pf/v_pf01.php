@@ -9,23 +9,57 @@
             }
         </style>
         <meta name='robots' content='noindex, nofollow' />
+		<?php 
+			$tanggal_db = $member->tgl_acara; // 2025-12-30
+			$timestamp = strtotime($tanggal_db);
+
+			$hari = [
+				'Sunday' => 'Minggu',
+				'Monday' => 'Senin',
+				'Tuesday' => 'Selasa',
+				'Wednesday' => 'Rabu',
+				'Thursday' => 'Kamis',
+				'Friday' => 'Jumat',
+				'Saturday' => 'Sabtu'
+			];
+
+			$bulan = [
+				'January' => 'Januari',
+				'February' => 'Februari',
+				'March' => 'Maret',
+				'April' => 'April',
+				'May' => 'Mei',
+				'June' => 'Juni',
+				'July' => 'Juli',
+				'August' => 'Agustus',
+				'September' => 'September',
+				'October' => 'Oktober',
+				'November' => 'November',
+				'December' => 'Desember'
+			];
+
+			$nama_hari_acara = $hari[date('l', $timestamp)];
+			$tgl_acara = date('d', $timestamp);
+			$nama_bulan_acara = $bulan[date('F', $timestamp)];
+			$tahun_acara = date('Y', $timestamp);
+		?>
 
 	<!-- This site is optimized with the Yoast SEO plugin v26.4 - https://yoast.com/wordpress/plugins/seo/ -->
-	<title>Undangan Premium Dengan Foto 01</title>
-	<meta name="description" content="Buat undangan pernikahan berbasis website dengan cara praktis, hemat biaya, dan cepat untuk momen spesialmu." />
+	<title>The Wedding Of <?= $member->pgl_prm ?> &amp; <?= $member->pgl_laki ?></title>
+	<meta name="description" content="<?php echo "$nama_hari_acara, $tgl_acara $nama_bulan_acara $tahun_acara"; ?>" />
 	<meta property="og:locale" content="id_ID" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Undangan Premium Dengan Foto 01" />
-	<meta property="og:description" content="Buat undangan pernikahan berbasis website dengan cara praktis, hemat biaya, dan cepat untuk momen spesialmu." />
-	<meta property="og:url" content="<?= base_url('tema/pf01') ?>" />
+	<meta property="og:title" content="The Wedding Of <?= $member->pgl_prm ?> &amp; <?= $member->pgl_laki ?>" />
+	<meta property="og:description" content="<?php echo "$nama_hari_acara, $tgl_acara $nama_bulan_acara $tahun_acara"; ?>" />
+	<meta property="og:url" content="<?= base_url('undangan/' . $member->url_link) ?>" />
 	<meta property="og:site_name" content="Weddingdev" />
-	<meta property="article:modified_time" content="2025-11-05T03:04:49+00:00" />
-	<meta property="og:image" content="<?= base_url('uploads/tema/pf01.jpg') ?> ?>" />
+	<meta property="article:modified_time" content="<?= $nama_bulan_acara ?>" />
+	<meta property="og:image" content="<?= base_url('uploads/foto/' . $member->foto_cover) ?>" />
 	<meta property="og:image:width" content="1024" />
 	<meta property="og:image:height" content="1027" />
 	<meta property="og:image:type" content="image/jpeg" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:label1" content="Estimasi waktu membaca" />
+	<meta name="twitter:label1" content="The Wedding Of <?= $member->pgl_prm ?> &amp; <?= $member->pgl_laki ?>" />
 	<meta name="twitter:data1" content="2 menit" />
 	<!-- / Yoast SEO plugin. -->
 
@@ -833,11 +867,11 @@ margin: 10px 0px 0px 0px!important;
 				<div class="elementor-element elementor-element-5492a525 elementor-align-center ef zoom-out elementor-widget elementor-widget-button" data-id="5492a525" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
-					<a class="elementor-button elementor-button-link elementor-size-xs" href="https://www.instagram.com" target="_blank">
+					<a class="elementor-button elementor-button-link elementor-size-xs" href="https://www.instagram.com/<?= $member->ig_live ?>" target="_blank">
 						<span class="elementor-button-content-wrapper">
 						<span class="elementor-button-icon">
 				<i aria-hidden="true" class="fab fa-instagram"></i>			</span>
-									<span class="elementor-button-text">@Instagram</span>
+									<span class="elementor-button-text">@<?= $member->ig_live ?></span>
 					</span>
 					</a>
 				</div>
@@ -867,29 +901,29 @@ margin: 10px 0px 0px 0px!important;
 				<div class="elementor-element elementor-element-162e69ba ef slide-up elementor-widget elementor-widget-gallery" data-id="162e69ba" data-element_type="widget" data-settings="{&quot;gallery_layout&quot;:&quot;justified&quot;,&quot;ideal_row_height_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:250,&quot;sizes&quot;:[]},&quot;ideal_row_height&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:300,&quot;sizes&quot;:[]},&quot;ideal_row_height_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:400,&quot;sizes&quot;:[]},&quot;gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;link_to&quot;:&quot;file&quot;,&quot;content_hover_animation&quot;:&quot;fade-in&quot;}" data-widget_type="gallery.default">
 				<div class="elementor-widget-container">
 							<div class="elementor-gallery__container">
-							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-1.jpg') ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="SUJA-24SK1173-PII-1.jpg">
-					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-1.jpg') ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
+							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('uploads/foto/'). $member->foto_glr3 ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="<?= $member->foto_glr3 ?>">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('uploads/foto/'). $member->foto_glr3 ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
 														</a>
-							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-9.jpg') ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="SUJA-24SK1173-PII-9.jpg">
-					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-9.jpg') ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
+							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('uploads/foto/'). $member->foto_glr4 ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="<?= $member->foto_glr4 ?>">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('uploads/foto/'). $member->foto_glr4 ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
 														</a>
-							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-8.jpg') ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="SUJA-24SK1173-PII-8.jpg">
-					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-8.jpg') ?>" data-width="1024" data-height="1536" aria-label="" role="img" ></div>
+							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('uploads/foto/'). $member->foto_glr5 ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="<?= $member->foto_glr5 ?>">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('uploads/foto/'). $member->foto_glr5 ?>" data-width="1024" data-height="1536" aria-label="" role="img" ></div>
 														</a>
-							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-7.jpg') ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="SUJA-24SK1173-PII-7.jpg">
-					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-7.jpg') ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
+							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('uploads/foto/'). $member->foto_glr6 ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="<?= $member->foto_glr6 ?>">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('uploads/foto/'). $member->foto_glr6 ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
 														</a>
-							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-6.jpg') ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="SUJA-24SK1173-PII-6.jpg">
-					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-6.jpg') ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
+							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('uploads/foto/'). $member->foto_glr7 ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="<?= $member->foto_glr7 ?>">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('uploads/foto/'). $member->foto_glr7 ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
 														</a>
-							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-4.jpg') ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="SUJA-24SK1173-PII-4.jpg">
-					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-4.jpg') ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
+							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('uploads/foto/'). $member->foto_glr8 ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="<?= $member->foto_glr8 ?>">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('uploads/foto/'). $member->foto_glr8 ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
 														</a>
-							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-3.jpg') ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="SUJA-24SK1173-PII-3.jpg">
-					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-3.jpg') ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
+							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('uploads/foto/'). $member->foto_glr9 ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="<?= $member->foto_glr9 ?>">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('uploads/foto/'). $member->foto_glr9 ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
 														</a>
-							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-2.jpg') ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="SUJA-24SK1173-PII-2.jpg">
-					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-2.jpg') ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
+							<a class="e-gallery-item elementor-gallery-item elementor-animated-content" href="<?= base_url('uploads/foto/'). $member->foto_glr10 ?>" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="162e69ba" data-elementor-lightbox-title="<?= $member->foto_glr10 ?>">
+					<div class="e-gallery-image elementor-gallery-item__image" data-thumbnail="<?= base_url('uploads/foto/'). $member->foto_glr10 ?>" data-width="1024" data-height="1535" aria-label="" role="img" ></div>
 														</a>
 					</div>
 					</div>
@@ -924,27 +958,27 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 				<div class="elementor-element elementor-element-69372f34 ef slide-up elementor-widget elementor-widget-text-editor" data-id="69372f34" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>06 DESEMBER 2023</p>								</div>
+									<p>Awal Cerita</p>								</div>
 				</div>
 				<div class="elementor-element elementor-element-545e0c00 ef slide-up elementor-widget elementor-widget-text-editor" data-id="545e0c00" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>								</div>
+									<p style="text-align: justify;"><?= $member->love_st1 ?></p>								</div>
 				</div>
 				<div class="elementor-element elementor-element-3a997814 ef slide-up elementor-widget elementor-widget-text-editor" data-id="3a997814" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>06 DESEMBER 2024</p>								</div>
+									<p>Lamaran</p>								</div>
 				</div>
 				<div class="elementor-element elementor-element-31397a6f ef slide-up elementor-widget elementor-widget-text-editor" data-id="31397a6f" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>								</div>
+									<p style="text-align: justify;"><?= $member->love_st2 ?></p>								</div>
 				</div>
 				<div class="elementor-element elementor-element-7dbb1c05 ef slide-up elementor-widget elementor-widget-text-editor" data-id="7dbb1c05" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>06 DESEMBER 2025</p>								</div>
+									<p>Pernikahan</p>								</div>
 				</div>
 				<div class="elementor-element elementor-element-5386eeb9 ef slide-up elementor-widget elementor-widget-text-editor" data-id="5386eeb9" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>								</div>
+									<p style="text-align: justify;"><?= $member->love_st3 ?></p>								</div>
 				</div>
 				<div class="elementor-element elementor-element-6763eba7 elementor-widget elementor-widget-spacer" data-id="6763eba7" data-element_type="widget" data-widget_type="spacer.default">
 				<div class="elementor-widget-container">
@@ -987,7 +1021,23 @@ margin: 10px 0px 0px 0px!important;
 		<div class="elementor-element elementor-element-2a449e93 e-con-full animated-slow e-flex elementor-invisible e-con e-child" data-id="2a449e93" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;zoomIn&quot;}">
 				<div class="elementor-element elementor-element-7232ac9b elementor-widget elementor-widget-image" data-id="7232ac9b" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img loading="lazy" decoding="async" width="2560" height="813" src="<?= base_url('assets/tema/pf01/images/BCA_logo_Bank_Central_Asia-1-3-5-2-scaled.png') ?>" class="attachment-full size-full wp-image-29407" alt="" srcset="<?= base_url('assets/tema/pf01/images/BCA_logo_Bank_Central_Asia-1-3-5-2-scaled.png') ?> 2560w, <?= base_url('assets/tema/pf01/images/BCA_logo_Bank_Central_Asia-1-3-5-2-300x95.png') ?> 300w, <?= base_url('assets/tema/pf01/images/BCA_logo_Bank_Central_Asia-1-3-5-2-1024x325.png') ?> 1024w, <?= base_url('assets/tema/pf01/images/BCA_logo_Bank_Central_Asia-1-3-5-2-768x244.png') ?> 768w, <?= base_url('assets/tema/pf01/images/BCA_logo_Bank_Central_Asia-1-3-5-2-1536x488.png') ?> 1536w, <?= base_url('assets/tema/pf01/images/BCA_logo_Bank_Central_Asia-1-3-5-2-2048x650.png') ?> 2048w" sizes="(max-width: 2560px) 100vw, 2560px" />															</div>
+					<?php if ($member->bank == 'BCA') { ?>
+						<img loading="lazy" decoding="async" width="2560" height="813" src="<?= base_url('assets/images/bca.png') ?>" class="attachment-full size-full wp-image-29407" alt="" sizes="(max-width: 2560px) 100vw, 2560px" />															</div>
+					<?php }elseif ($member->bank == 'BRI') { ?>
+						<img loading="lazy" decoding="async" width="2560" height="813" src="<?= base_url('assets/images/bri.png') ?>" class="attachment-full size-full wp-image-29407" alt="" sizes="(max-width: 2560px) 100vw, 2560px" />															</div>
+					<?php }elseif ($member->bank == 'BNI') { ?>
+						<img loading="lazy" decoding="async" width="2560" height="813" src="<?= base_url('assets/images/bni.png') ?>" class="attachment-full size-full wp-image-29407" alt="" sizes="(max-width: 2560px) 100vw, 2560px" />															</div>
+					<?php }elseif ($member->bank == 'CIMB') { ?>
+						<img loading="lazy" decoding="async" width="2560" height="813" src="<?= base_url('assets/images/cimb.png') ?>" class="attachment-full size-full wp-image-29407" alt="" sizes="(max-width: 2560px) 100vw, 2560px" />															</div>
+					<?php }elseif ($member->bank == 'SEABANK') { ?>
+						<img loading="lazy" decoding="async" width="2560" height="813" src="<?= base_url('assets/images/seabank.png') ?>" class="attachment-full size-full wp-image-29407" alt="" sizes="(max-width: 2560px) 100vw, 2560px" />															</div>
+					<?php }elseif ($member->bank == 'PERMATA') { ?>
+						<img loading="lazy" decoding="async" width="2560" height="813" src="<?= base_url('assets/images/permata.png') ?>" class="attachment-full size-full wp-image-29407" alt="" sizes="(max-width: 2560px) 100vw, 2560px" />															</div>
+					<?php }elseif ($member->bank == 'BSI') { ?>
+						<img loading="lazy" decoding="async" width="2560" height="813" src="<?= base_url('assets/images/bsi.png') ?>" class="attachment-full size-full wp-image-29407" alt="" sizes="(max-width: 2560px) 100vw, 2560px" />															</div>
+					<?php }elseif ($member->bank == 'BTN') { ?>
+						<img loading="lazy" decoding="async" width="2560" height="813" src="<?= base_url('assets/images/btn.png') ?>" class="attachment-full size-full wp-image-29407" alt="" sizes="(max-width: 2560px) 100vw, 2560px" />															</div>
+					<?php } ?>
 				</div>
 				<div class="elementor-element elementor-element-633efd3e elementor-widget elementor-widget-image" data-id="633efd3e" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
@@ -995,11 +1045,11 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 				<div class="elementor-element elementor-element-17377063 elementor-widget elementor-widget-heading" data-id="17377063" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<p class="elementor-heading-title elementor-size-default">1234 5678 90</p>				</div>
+					<p class="elementor-heading-title elementor-size-default"><?= $member->rekening ?></p>				</div>
 				</div>
 				<div class="elementor-element elementor-element-4aee3f2b elementor-widget elementor-widget-heading" data-id="4aee3f2b" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<p class="elementor-heading-title elementor-size-default">Habib</p>				</div>
+					<p class="elementor-heading-title elementor-size-default"><?= $member->penerima ?></p>				</div>
 				</div>
 				<div class="elementor-element elementor-element-31c2806d elementor-align-right elementor-tablet-align-right elementor-mobile-align-right elementor-widget elementor-widget-weddingpress-copy-text" data-id="31c2806d" data-element_type="widget" data-widget_type="weddingpress-copy-text.default">
 				<div class="elementor-widget-container">
@@ -1061,8 +1111,19 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 		<div class="elementor-element elementor-element-b4149a8 e-con-full animated-slow e-flex elementor-invisible e-con e-child" data-id="b4149a8" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;zoomIn&quot;}">
 				<div class="elementor-element elementor-element-7b3fc5f0 elementor-widget elementor-widget-image" data-id="7b3fc5f0" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-															<img loading="lazy" decoding="async" width="1200" height="342" src="<?= base_url('assets/tema/pf01/images/1200px-Logo_dana_blue.svg-1-1-1-1-1.png') ?>" class="attachment-full size-full wp-image-29410" alt="" srcset="<?= base_url('assets/tema/pf01/images/1200px-Logo_dana_blue.svg-1-1-1-1-1.png') ?> 1200w, <?= base_url('assets/tema/pf01/images/1200px-Logo_dana_blue.svg-1-1-1-1-1-300x86.png') ?> 300w, <?= base_url('assets/tema/pf01/images/1200px-Logo_dana_blue.svg-1-1-1-1-1-1024x292.png') ?> 1024w, <?= base_url('assets/tema/pf01/images/1200px-Logo_dana_blue.svg-1-1-1-1-1-768x219.png') ?> 768w" sizes="(max-width: 1200px) 100vw, 1200px" />															</div>
+					<div class="elementor-widget-container">
+						<?php if ($member->ewallet == 'DANA') { ?>
+							<img loading="lazy" decoding="async" width="1200" height="342" src="<?= base_url('assets/images/dana.png') ?>" class="attachment-full size-full wp-image-29410" alt="" sizes="(max-width: 1200px) 100vw, 1200px" />
+						<?php }elseif ($member->ewallet == 'GOPAY') { ?>
+							<img loading="lazy" decoding="async" width="1200" height="342" src="<?= base_url('assets/images/gopay.png') ?>" class="attachment-full size-full wp-image-29410" alt="" sizes="(max-width: 1200px) 100vw, 1200px" />
+						<?php }elseif ($member->ewallet == 'OVO') { ?>
+							<img loading="lazy" decoding="async" width="1200" height="342" src="<?= base_url('assets/images/ovo.png') ?>" class="attachment-full size-full wp-image-29410" alt="" sizes="(max-width: 1200px) 100vw, 1200px" />
+						<?php }elseif ($member->ewallet == 'LINKAJA') { ?>
+							<img loading="lazy" decoding="async" width="1200" height="342" src="<?= base_url('assets/images/linkaja.png') ?>" class="attachment-full size-full wp-image-29410" alt="" sizes="(max-width: 1200px) 100vw, 1200px" />
+						<?php }elseif ($member->ewallet == 'SHOPEEPAY') { ?>
+							<img loading="lazy" decoding="async" width="1200" height="342" src="<?= base_url('assets/images/shopeepay.png') ?>" class="attachment-full size-full wp-image-29410" alt="" sizes="(max-width: 1200px) 100vw, 1200px" />
+						<?php } ?>
+					</div>
 				</div>
 				<div class="elementor-element elementor-element-6c4cc432 elementor-widget elementor-widget-spacer" data-id="6c4cc432" data-element_type="widget" data-widget_type="spacer.default">
 				<div class="elementor-widget-container">
@@ -1073,11 +1134,11 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 				<div class="elementor-element elementor-element-277c8262 elementor-widget elementor-widget-heading" data-id="277c8262" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<p class="elementor-heading-title elementor-size-default">1234 5678 90</p>				</div>
+					<p class="elementor-heading-title elementor-size-default"><?= $member->no_ewallet ?></p>				</div>
 				</div>
 				<div class="elementor-element elementor-element-6af3e4df elementor-widget elementor-widget-heading" data-id="6af3e4df" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<p class="elementor-heading-title elementor-size-default">Habib</p>				</div>
+					<p class="elementor-heading-title elementor-size-default"><?= $member->penerima ?></p>				</div>
 				</div>
 				<div class="elementor-element elementor-element-b1275bf elementor-align-right elementor-tablet-align-right elementor-mobile-align-right elementor-widget elementor-widget-weddingpress-copy-text" data-id="b1275bf" data-element_type="widget" data-widget_type="weddingpress-copy-text.default">
 				<div class="elementor-widget-container">
@@ -1152,7 +1213,7 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 				<div class="elementor-element elementor-element-52ed9a75 elementor-widget elementor-widget-text-editor" data-id="52ed9a75" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>Nama Penerima : Habib Yulianto</p><p>No. HP : 1234 5678 90</p><p>Ds Pagu Kec.Wates Kab. Kediri</p>								</div>
+									<p>Nama Penerima : <?= $member->penerima ?></p><p>No. HP : 0<?= $member->no_hp ?></p><p><?= $member->alamat_penerima ?></p>								</div>
 				</div>
 				</div>
 				</div>
@@ -1195,8 +1256,8 @@ margin: 10px 0px 0px 0px!important;
 					<div class='cui-wrapper cui-facebook cui-border' style='overflow: hidden;'>
 						<div class='cui-wrap-link'>
 							<div class='header-cui'>
-								<a id='cui-link-30944' class='cui-link cui-icon-link cui-icon-link-true auto-load-true' href='?post_id=30944&amp;comments=0&amp;get=500&amp;order=DESC' title='0 Comments'>
-									<i class="fab fa-whatsapp"></i> 081-234-567-8900
+								<a href="https://wa.me/62<?= $member->no_hp ?>" class="elementor-button" style="text-decoration: none;" target="_blank">
+									<i class="fab fa-whatsapp"></i> 0<?= $member->no_hp ?>
 								</a>
 							</div>
 						</div><!--.cui-wrap-link-->
@@ -1235,19 +1296,19 @@ margin: 10px 0px 0px 0px!important;
 		<div class="elementor-element elementor-element-2f717d07 e-con-full e-flex e-con e-child" data-id="2f717d07" data-element_type="container">
 				<div class="elementor-element elementor-element-49dbdd62 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="49dbdd62" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInLeft&quot;}" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>H</p>								</div>
+									<p><?= $member->init_laki ?></p>								</div>
 				</div>
 				</div>
 		<div class="elementor-element elementor-element-19f33694 e-con-full e-flex e-con e-child" data-id="19f33694" data-element_type="container">
 				<div class="elementor-element elementor-element-355530b elementor-invisible elementor-widget elementor-widget-text-editor" data-id="355530b" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>A</p>								</div>
+									<p><?= $member->init_prm ?></p>								</div>
 				</div>
 				</div>
 				</div>
 				<div class="elementor-element elementor-element-d5dd671 acara1 ef zoom-out elementor-widget elementor-widget-image" data-id="d5dd671" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img loading="lazy" decoding="async" width="982" height="982" src="<?= base_url('assets/tema/pf01/images/SUJA-24SK1173-PII-9-1-e1730097922583.jpg') ?>" class="attachment-full size-full wp-image-29389" alt="" sizes="(max-width: 982px) 100vw, 982px" />															</div>
+															<img loading="lazy" decoding="async" width="982" height="982" src="<?= base_url('uploads/foto/' . $member->foto_glr11) ?>" class="attachment-full size-full wp-image-29389" alt="" sizes="(max-width: 982px) 100vw, 982px" />															</div>
 				</div>
 				<div class="elementor-element elementor-element-8ee16c ef slide-up elementor-widget elementor-widget-text-editor" data-id="8ee16c" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
@@ -1255,7 +1316,7 @@ margin: 10px 0px 0px 0px!important;
 				</div>
 				<div class="elementor-element elementor-element-37169fba ef slide-up elementor-widget elementor-widget-heading" data-id="37169fba" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Habib &amp; Adiba</h2>				</div>
+					<h2 class="elementor-heading-title elementor-size-default"><?= $member->pgl_laki ?> &amp; <?= $member->pgl_prm ?></h2>				</div>
 				</div>
 				<div class="elementor-element elementor-element-5dadb63d elementor-widget elementor-widget-spacer" data-id="5dadb63d" data-element_type="widget" data-widget_type="spacer.default">
 				<div class="elementor-widget-container">
@@ -1295,27 +1356,28 @@ margin: 10px 0px 0px 0px!important;
 			</script>
 
 			<div id="audio-container" class="audio-box">
-
+				<?php if ($member->song != '') { ?>
+					<audio id="song" loop>
+						<source src="<?= base_url('uploads/song/' . $member->song) ?>" type="audio/mp3">
+					</audio>
+				<?php } else { ?>
+					<audio id="song" loop>
+						<source src="<?= base_url('assets/song/' . $member->kode_tema . '.mp3') ?>" type="audio/mp3">
+					</audio>
+				<?php } ?>
 				
+				<div class="elementor-icon-wrapper" id="unmute-sound" style="display: none;">
+					<div class="elementor-icon">
+						<i aria-hidden="true" class="fas fa-pause-circle"></i>
+					</div>
+				</div> 
 
-				<audio id="song" loop>
-			<source src="https://dodidev.my.id/cdn/song/song01.mp3"
-			type="audio/mp3">
-		</audio>  
-			
-
-					
-			<div class="elementor-icon-wrapper" id="unmute-sound" style="display: none;">
-				<div class="elementor-icon">
-				<i aria-hidden="true" class="fas fa-pause-circle"></i>				</div>
-			</div> 
-
-			<div class="elementor-icon-wrapper" id="mute-sound" style="display: none;">
-				<div class="elementor-icon">
-				<i aria-hidden="true" class="fas fa-compact-disc"></i>				</div>
+				<div class="elementor-icon-wrapper" id="mute-sound" style="display: none;">
+					<div class="elementor-icon">
+						<i aria-hidden="true" class="fas fa-compact-disc"></i>
+					</div>
+				</div>
 			</div>
-			
-		</div>
 
 						<script>
 					jQuery("document").ready(function($) {

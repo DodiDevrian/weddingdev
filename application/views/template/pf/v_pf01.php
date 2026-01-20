@@ -20,7 +20,7 @@
 	<meta property="og:url" content="<?= base_url('tema/pf01') ?>" />
 	<meta property="og:site_name" content="Weddingdev" />
 	<meta property="article:modified_time" content="2025-11-05T03:04:49+00:00" />
-	<meta property="og:image" content="<?= base_url('uploads/tema/pf01.jpg') ?> ?>" />
+	<meta property="og:image" content="<?= base_url('uploads/tema/pf01.jpg') ?>" />
 	<meta property="og:image:width" content="1024" />
 	<meta property="og:image:height" content="1027" />
 	<meta property="og:image:type" content="image/jpeg" />
@@ -1203,7 +1203,7 @@ margin: 10px 0px 0px 0px!important;
 				
 
 				<audio id="song" loop>
-			<source src="https://dodidev.my.id/cdn/song/song01.mp3"
+			<source src="https://dodidev.my.id/music/music.mp3"
 			type="audio/mp3">
 		</audio>  
 			

@@ -33,4 +33,20 @@ class Contoh extends CI_Controller
     {
         $this->load->view('template/pt/v_pt01');
     }
+
+// SF
+    public function sf01()
+    {
+        $this->load->view('template/sf/v_sf01');
+    }
+
+    public function sf02()
+    {
+        $this->load->view('template/sf/v_sf02');
+    }
+
+    public function sf03()
+    {
+        $this->load->view('template/sf/v_sf03');
+    }
 }

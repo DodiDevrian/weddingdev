@@ -3,11 +3,61 @@
 <div class="container">
           <div class="page-inner">
             <div
-              class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
+              class="d-flex align-items-center align-items-md-center flex-column flex-md-row pt-2 pb-4"
+              style="justify-content: space-between;"
             >
               <div>
-                <h3 class="fw-bold mb-3"><?= $member->url_link ?></h3>
-                <h6 class="op-7 mb-2">Data bisa diubah dihalaman ini</h6>
+                <h3 class="fw-bold text-center"><?= $member->url_link ?></h3>
+              </div>
+              <div class="d-flex align-items-center">
+                <?php if ($member->song != '') { ?>
+                  <audio controls>
+                    <source src="<?= base_url('uploads/song/' . $member->song) ?>" type="audio/mp3">
+                  </audio>
+                <?php }else { ?>
+                  <audio controls>
+                    <source src="<?= base_url('assets/song/' . $member->kode_tema . '.mp3') ?>" type="audio/mp3">
+                  </audio>
+                <?php  } ?>
+                <div class="ml-2">
+                  <button type="button" class="btn btn-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#ubahmusik">Ubah Musik</button>
+
+                  <div class="modal fade" id="ubahmusik" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Ubah Musik</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="text-center mb-4">
+                            <label for="">Musik Saat Ini</label><br>
+                            <?php if ($member->song != '') { ?>
+                              <audio controls class="text-start">
+                                <source src="<?= base_url('uploads/song/' . $member->song) ?>" type="audio/mp3">
+                              </audio>
+                            <?php }else { ?>
+                              <audio controls>
+                                <source src="<?= base_url('assets/song/' . $member->kode_tema . '.mp3') ?>" type="audio/mp3">
+                              </audio>
+                            <?php  } ?>
+                          </div>
+
+                          <?php echo form_open_multipart('admin123/member/edit_musik/' . $member->id_member); ?>
+                          <div class="form-group text-start">
+                              <label class="form-label">Musik</label>
+                              <input type="file" class="form-control" name="song" value="<?= $member->song ?>">
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                        <?php echo form_close(); ?>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
                 <?php
@@ -462,7 +512,48 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="card" style="height: -webkit-fill-available;">
+                <div class="card">
+                    <div class="card-header">
+                    <div class="card-head-row">
+                      <div class="card-title">Data Ayat</div>
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataayat">
+                            Ubah Ayat
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body" >
+                    <p class="text-center"><?= nl2br($member->ayat) ?></p>
+                    <div class="modal fade" id="dataayat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ubah Data Ayat</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <?php echo form_open('admin123/member/edit_dataayat_reg/' . $member->id_member); ?>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Ayat</label>
+                                            <textarea style="height: 200px;" class="form-control" name="ayat" id=""><?= $member->ayat ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                            <?php echo form_close(); ?>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
                     <div class="card-header">
                     <div class="card-head-row">
                       <div class="card-title">Data Gift</div>
@@ -474,7 +565,7 @@
                     </div>
                   </div>
                   <div class="card-body" >
-                    <table class="table" >
+                    <table style="width: -webkit-fill-available;">
                         <tr>
                             <td>Bank</td>
                             <td> : </td>
@@ -681,7 +772,7 @@
                       </div>
                       <div class="col-md-6 mt-2">
                         <div class="text-center">
-                          <p>Foto Mempelai Perempuan</p>
+                          <p>Foto Mempelai Wanita</p>
                           <?php if ($member->foto_prm != '') { ?>
                             <img width="60%" src="<?= base_url('uploads/foto/' . $member->foto_prm) ?>" alt="Foto Perempuan" class="img-fluid rounded"
                             style="
@@ -738,7 +829,7 @@
 
                                   <?php echo form_open_multipart('admin123/member/edit_fotoprm/' . $member->id_member); ?>
                                   <div class="form-group text-start">
-                                      <label class="form-label">Foto Mempelai Perempuan</label>
+                                      <label class="form-label">Foto Mempelai Wanita</label>
                                       <input type="file" class="form-control" name="foto_prm" value="<?= $member->foto_prm ?>">
                                   </div>
                                 </div>
